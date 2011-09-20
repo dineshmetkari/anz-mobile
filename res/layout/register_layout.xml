@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="match_parent"
+	android:layout_height="match_parent">
+	<LinearLayout android:orientation="horizontal"
+		android:layout_width="match_parent" android:layout_height="wrap_content"
+		android:background="@drawable/banner_bg" android:gravity="center_vertical"
+		android:padding="10dp">
+		<TextView android:text="Register ANZ Online Account" android:id="@+id/banner_title"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:textColor="#FFFFFF" android:textSize="18sp"
+			android:textStyle="bold"></TextView>
+	</LinearLayout>
+	<LinearLayout android:layout_height="wrap_content"
+		android:orientation="vertical" android:layout_width="match_parent"
+		android:background="@drawable/gradient_blue" android:padding="15dp"
+		android:layout_margin="5dp">
+		<TextView android:text="Customer Registration Number : "
+			android:layout_height="wrap_content" android:layout_width="wrap_content"
+			android:padding="10dp" style="@style/account_text_style"
+			android:textSize="15sp"></TextView>
+		<EditText android:inputType="number" android:numeric="integer"
+			android:maxLength="16" android:layout_height="wrap_content"
+			android:id="@+id/register_userid" android:layout_width="match_parent"
+			style="@style/transaction_text_style" android:textSize="20sp"></EditText>
+		<TextView android:text="Password : " android:layout_height="wrap_content"
+			android:layout_width="wrap_content" android:padding="10dp"
+			style="@style/account_text_style" android:textSize="15sp"></TextView>
+		<EditText android:inputType="textPassword" android:maxLength="16"
+			android:layout_height="wrap_content" android:id="@+id/register_password"
+			android:layout_width="match_parent" style="@style/transaction_text_style"
+			android:textSize="20sp"></EditText>
+	</LinearLayout>
+	<LinearLayout android:layout_height="wrap_content"
+		android:orientation="vertical" android:layout_width="match_parent"
+		android:background="@drawable/gradient_blue" android:padding="15dp"
+		android:layout_margin="5dp">
+		<LinearLayout android:layout_height="wrap_content"
+			android:layout_width="match_parent">
+			<TextView android:text="PIN : " android:layout_height="wrap_content"
+				android:layout_width="wrap_content" android:padding="10dp"
+				style="@style/account_text_style" android:textSize="15sp"></TextView>
+			<EditText android:inputType="number" android:numeric="integer"
+				android:password="true" android:maxLength="4" android:layout_height="wrap_content"
+				android:id="@+id/register_pin" android:layout_width="match_parent"
+				style="@style/transaction_text_style" android:textSize="20sp"></EditText>
+		</LinearLayout>
+		<Button android:text="Register" android:id="@+id/register_button"
+			android:layout_width="100dp" android:layout_height="50dp"
+			android:layout_gravity="right|center_vertical" style="@style/transaction_text_style"
+			android:textSize="18sp" android:background="@drawable/button_bg"
+			android:gravity="top|center_horizontal"></Button>
+	</LinearLayout>
+</LinearLayout>

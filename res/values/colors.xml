@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources
+  xmlns:android="http://schemas.android.com/apk/res/android">
+      <color name="button_normal_start">#fad541</color>
+      <color name="button_normal_end">#db9e03</color>
+      <color name="button_pressed_start">#2540ad</color>
+      <color name="button_pressed_end">#180a4d</color>
+      <color name="button_focused_start">#c24e00</color>
+      <color name="button_focused_end">#850f04</color>
+      <color name="button_border">#333333</color>
+      
+</resources>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+	android:key="pref_top">
+	<EditTextPreference android:title="PIN"
+		android:dialogTitle="PIN" android:dialogMessage="Change the PIN"
+		android:key="pin" android:summary="Set up the PIN for using this application"
+		android:inputType="number" android:numeric="integer"
+		android:maxLength="4" android:password="true"></EditTextPreference>
+	<EditTextPreference android:title="CRN"
+		android:dialogTitle="Account number" android:dialogMessage="It should be 8, 15, or 16 digits."
+		android:key="userid" android:summary="The registeration number for using internet banking."
+		android:inputType="number" android:numeric="integer"
+		android:maxLength="16"></EditTextPreference>
+	<EditTextPreference android:title="Password"
+		android:dialogTitle="Password"
+		android:dialogMessage="It should between 8 and 16 letters and/or digits."
+		android:key="password" android:summary="The password for log into internet banking."
+		android:inputType="textPassword" android:maxLength="16"
+		android:password="true"></EditTextPreference>
+
+</PreferenceScreen>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="match_parent"
+	android:layout_height="match_parent" android:padding="10dp">
+	<ScrollView android:layout_height="wrap_content"
+		android:layout_width="match_parent">
+		<LinearLayout android:layout_height="wrap_content"
+			android:layout_width="match_parent" android:gravity="center"
+			android:orientation="vertical">
+			<Gallery android:layout_height="wrap_content"
+				android:layout_width="match_parent" android:layout_weight="0.3"
+				android:layout_gravity="center" android:unselectedAlpha="50"
+				android:spacing="10dp" android:id="@+id/transfer_account_from"></Gallery>
+			<ImageView android:src="@drawable/down_arrow_green"
+				android:layout_height="wrap_content" android:layout_width="wrap_content"
+				android:layout_gravity="center" android:layout_weight="0.1"></ImageView>
+			<Gallery android:layout_height="wrap_content"
+				android:layout_width="match_parent" android:layout_weight="0.3"
+				android:layout_gravity="center" android:unselectedAlpha="50"
+				android:spacing="10dp" android:id="@+id/transfer_account_to"></Gallery>
+			<LinearLayout android:layout_height="wrap_content"
+				android:orientation="vertical" android:layout_width="match_parent"
+				android:background="@drawable/gradient_blue" android:padding="15dp"
+				android:gravity="center">
+				<LinearLayout android:layout_height="wrap_content"
+					android:layout_width="match_parent" android:layout_weight="0.2"
+					android:gravity="center" android:orientation="horizontal">
+					<TextView android:text="Amount: " android:layout_width="wrap_content"
+						android:layout_height="wrap_content" style="@style/account_text_style"
+						android:textSize="15sp"></TextView>
+					<EditText android:layout_height="wrap_content"
+						android:layout_weight="1" android:id="@+id/transfer_amount"
+						android:layout_width="wrap_content" android:inputType="numberDecimal"
+						style="@style/transaction_text_style" android:textSize="15sp">
+						<requestFocus></requestFocus>
+					</EditText>
+					<Button android:text="Transfer" android:id="@+id/transfer_button"
+						android:layout_width="100dp" android:layout_height="50dp"
+						android:layout_gravity="right|center_vertical" style="@style/transaction_text_style"
+						android:textSize="18sp" android:background="@drawable/button_bg"
+						android:gravity="top|center_horizontal"></Button>
+				</LinearLayout>
+			</LinearLayout>
+		</LinearLayout>
+	</ScrollView>
+</LinearLayout>

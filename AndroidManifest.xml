@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+      package="org.dancefire.anz"
+      android:versionCode="1"
+      android:versionName="1.0" android:installLocation="auto">
+    <uses-sdk android:minSdkVersion="8" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"></uses-permission>
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+
+    <application android:icon="@drawable/anz_logo" android:label="@string/app_name" android:name=".Apps">
+        <activity android:name=".MainActivity" android:theme="@android:style/Theme.NoTitleBar"></activity>
+        <activity android:name=".ANZMobileActivity" android:theme="@android:style/Theme.NoTitleBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"></action>
+                <category android:name="android.intent.category.LAUNCHER"></category>
+            </intent-filter>
+        </activity>
+        <activity android:name=".PinVerifyActivity" android:theme="@android:style/Theme.NoTitleBar"></activity>
+        <activity android:name=".RegisterActivity"></activity>
+        <activity android:name=".AccountsListActivity"></activity>
+        <activity android:name=".TransactionListActivity" android:theme="@android:style/Theme.NoTitleBar"></activity>
+        <activity android:name=".SettingActivity"></activity>
+        <activity android:name=".PaymentGeneralActivity" android:theme="@android:style/Theme.NoTitleBar"></activity>
+        <activity android:name=".TransferActivity" android:theme="@android:style/Theme.NoTitleBar"></activity>
+        <activity android:name=".PayAnyoneActivity" android:theme="@android:style/Theme.NoTitleBar"></activity>
+        <activity android:name=".BPayActivity" android:theme="@android:style/Theme.NoTitleBar"></activity>
+        <activity android:name=".PayToMobileActivity" android:theme="@android:style/Theme.NoTitleBar"></activity>
+        <activity android:name=".ReceiptActivity" android:theme="@android:style/Theme.NoTitleBar"></activity>
+        <activity android:name=".SelectionActivity" android:theme="@android:style/Theme.NoTitleBar"></activity>
+    </application>
+</manifest>

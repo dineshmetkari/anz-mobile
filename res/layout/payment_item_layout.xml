@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="vertical"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent" android:weightSum="1">
+<Button
+        android:layout_height="match_parent"
+        android:background="@drawable/pin_button_background"
+        android:drawableTop="@drawable/icon"
+        android:textColor="#FFFFFF"
+        android:id="@+id/ButtonTest"
+        android:paddingTop="32sp"
+        android:drawablePadding="-15sp"
+        android:text="this is text" android:layout_weight="0.23" android:layout_width="130dp"></Button>
+    
+</LinearLayout>

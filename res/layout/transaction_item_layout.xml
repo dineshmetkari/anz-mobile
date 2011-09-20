@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent" android:layout_height="match_parent"
+	android:padding="5dp" android:background="@drawable/gradient_slice">
+	<TextView android:layout_height="wrap_content" android:text="01/01/2011"
+		android:layout_width="wrap_content" style="@style/transaction_text_style"
+		android:textSize="13sp" android:id="@+id/text_transaction_date"
+		></TextView>
+	<TextView android:layout_height="wrap_content" android:text="The description of this purchase."
+		android:layout_width="wrap_content" style="@style/transaction_text_style"
+		android:textSize="13sp" android:id="@+id/text_transaction_description"
+		android:layout_weight="0.6"></TextView>
+	<TextView android:layout_height="wrap_content" android:text="123.45"
+		android:layout_width="wrap_content" style="@style/transaction_text_style"
+		android:textSize="15sp" android:id="@+id/text_transaction_amount"
+		></TextView>
+</LinearLayout>
