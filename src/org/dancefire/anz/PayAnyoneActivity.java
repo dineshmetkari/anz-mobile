@@ -36,7 +36,7 @@ public class PayAnyoneActivity extends ConfirmActivity {
 	private AccountListAdapter m_adapter;
 	private ViewHolder m_holder;
 
-	private static final int SELECTION_ACTION = 1;
+	private static final int ACTION_SELECTION = 2;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -95,7 +95,7 @@ public class PayAnyoneActivity extends ConfirmActivity {
 					Intent intent = new Intent(PayAnyoneActivity.this,
 							SelectionActivity.class);
 					intent.putExtra("item_list", names);
-					startActivityForResult(intent, SELECTION_ACTION);
+					startActivityForResult(intent, ACTION_SELECTION);
 				}
 			});
 
@@ -106,7 +106,7 @@ public class PayAnyoneActivity extends ConfirmActivity {
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
-		if (requestCode == SELECTION_ACTION) {
+		if (requestCode == ACTION_SELECTION) {
 			if (resultCode == RESULT_OK) {
 				int position = data.getIntExtra("selection", -1);
 				setHolderValue(position);
@@ -193,7 +193,7 @@ public class PayAnyoneActivity extends ConfirmActivity {
 				showReceipt("Pay Anyone is successed.",
 						Formatter.toString(page));
 			} catch (PageErrorException ex) {
-				notifyError("Pay Anyone is failed.", ex);
+				showError("Pay Anyone is failed.", ex);
 			}
 		}
 	}

@@ -200,14 +200,18 @@ public class AnzMobile {
 				.getTransferPage(this.m_current_page);
 		update(page_transfer);
 		// call transfer() and get the confirm page
+		AnzMobileUtil.logger.finer("[Before] Parser.transfer");
 		TransferConfirmPage page_confirm = Parser.transfer(page_transfer,
 				from.index, to.index, amount);
+		AnzMobileUtil.logger.finer("[After ] Parser.transfer");
 		update(page_confirm);
 		AnzMobileUtil.logger.finest(Formatter.toString(page_confirm));
 
 		// confirm the transfer and get the result page.
+		AnzMobileUtil.logger.finer("[Before] Parser.getTransferReceiptPage");
 		TransferReceiptPage page_receipt = Parser
 				.getTransferReceiptPage(page_confirm);
+		AnzMobileUtil.logger.finer("[After ] Parser.getTransferReceiptPage");
 		update(page_receipt);
 		AnzMobileUtil.logger.finest(Formatter.toString(page_receipt));
 
@@ -266,8 +270,7 @@ public class AnzMobile {
 	 * @throws PageErrorException
 	 */
 	public synchronized BPayReceiptPage payBills(Account from,
-			String from_name, BPayAccount payee, double amount)
-			throws PageErrorException {
+			BPayAccount payee, double amount) throws PageErrorException {
 		validate();
 
 		PayAnyonePage page_anyone = Parser.getPayAnyonePage(m_current_page);
@@ -277,7 +280,7 @@ public class AnzMobile {
 		update(page_bpay);
 
 		BPayConfirmPage page_confirm = Parser.getBPayConfirmPage(page_bpay,
-				from.index, from_name, payee, amount);
+				from.index, payee, amount);
 		update(page_confirm);
 
 		BPayReceiptPage page_receipt = Parser.getBPayReceiptPage(page_confirm);

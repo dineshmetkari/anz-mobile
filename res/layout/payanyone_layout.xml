@@ -20,7 +20,7 @@
 					<EditText android:layout_height="wrap_content"
 						android:layout_weight="1" android:id="@+id/payanyone_from_name"
 						android:layout_width="wrap_content" android:inputType="textPersonName"
-						style="@style/transaction_text_style" android:textSize="15sp" />
+						style="@style/transaction_text_style" android:textSize="15sp" android:maxLength="16"/>
 				</LinearLayout>
 			</LinearLayout>
 			<LinearLayout android:layout_height="wrap_content"
@@ -56,7 +56,7 @@
 							android:layout_width="wrap_content" style="@style/account_text_style"
 							android:textSize="15sp" android:paddingLeft="10dp" />
 						<EditText android:inputType="number" android:numeric="integer"
-							android:maxLength="10" android:layout_height="wrap_content"
+							android:maxLength="9" android:layout_height="wrap_content"
 							android:layout_weight="1" android:id="@+id/payanyone_to_number"
 							android:layout_width="wrap_content" style="@style/transaction_text_style"
 							android:textSize="15sp" android:text="" />
@@ -70,7 +70,7 @@
 					<EditText android:inputType="textPersonName"
 						android:layout_height="wrap_content" android:layout_weight="1"
 						android:id="@+id/payanyone_to_name" android:layout_width="match_parent"
-						style="@style/transaction_text_style" android:textSize="15sp" />
+						style="@style/transaction_text_style" android:textSize="15sp" android:maxLength="32"/>
 				</LinearLayout>
 				<LinearLayout android:layout_height="wrap_content"
 					android:layout_width="match_parent" android:orientation="vertical">
@@ -80,7 +80,7 @@
 					<EditText android:inputType="textPersonName"
 						android:layout_height="wrap_content" android:layout_weight="1"
 						android:id="@+id/payanyone_to_description" android:layout_width="match_parent"
-						style="@style/transaction_text_style" android:textSize="15sp" />
+						style="@style/transaction_text_style" android:textSize="15sp" android:maxLength="20"/>
 				</LinearLayout>
 			</LinearLayout>
 			<LinearLayout android:layout_height="wrap_content"
@@ -95,7 +95,7 @@
 					<EditText android:inputType="textPersonName"
 						android:layout_height="wrap_content" android:layout_weight="1"
 						android:id="@+id/payanyone_reference" android:layout_width="match_parent"
-						style="@style/transaction_text_style" android:textSize="15sp" />
+						style="@style/transaction_text_style" android:textSize="15sp" android:maxLength="18"/>
 				</LinearLayout>
 				<LinearLayout android:layout_height="wrap_content"
 					android:layout_width="match_parent">
@@ -106,7 +106,7 @@
 						android:numeric="decimal" android:layout_height="wrap_content"
 						android:layout_weight="1" android:id="@+id/payanyone_amount"
 						android:layout_width="wrap_content" style="@style/transaction_text_style"
-						android:textSize="15sp" />
+						android:textSize="15sp" android:maxLength="13"/>
 				</LinearLayout>
 				<LinearLayout android:layout_height="wrap_content"
 					android:layout_width="match_parent" android:padding="10dp"

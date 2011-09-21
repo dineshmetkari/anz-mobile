@@ -20,7 +20,6 @@ import android.widget.Gallery;
 public class BPayActivity extends ConfirmActivity {
 	static class ViewHolder {
 		private Gallery from;
-		private EditText from_name;
 		private EditText biller_name;
 		private EditText biller_code;
 		private EditText biller_reference;
@@ -34,7 +33,7 @@ public class BPayActivity extends ConfirmActivity {
 	private AccountListAdapter m_adapter;
 	private ViewHolder m_holder;
 
-	private static final int SELECTION_ACTION = 1;
+	private static final int ACTION_SELECTION = 2;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +42,6 @@ public class BPayActivity extends ConfirmActivity {
 
 		m_holder = new ViewHolder();
 		m_holder.from = (Gallery) findViewById(R.id.bpay_account_from);
-		m_holder.from_name = (EditText) findViewById(R.id.bpay_from_name);
 		m_holder.biller_code = (EditText) findViewById(R.id.bpay_biller_code);
 		m_holder.biller_name = (EditText) findViewById(R.id.bpay_biller_name);
 		m_holder.biller_reference = (EditText) findViewById(R.id.bpay_biller_reference);
@@ -52,7 +50,7 @@ public class BPayActivity extends ConfirmActivity {
 		m_holder.selection_button = findViewById(R.id.selection_button);
 
 		m_holder.amount.setTypeface(Apps.getCardFont());
-		
+
 		setRequestOnClickListener(R.id.bpay_button);
 
 		runBackgroundTask();
@@ -89,7 +87,7 @@ public class BPayActivity extends ConfirmActivity {
 					Intent intent = new Intent(BPayActivity.this,
 							SelectionActivity.class);
 					intent.putExtra("item_list", names);
-					startActivityForResult(intent, SELECTION_ACTION);
+					startActivityForResult(intent, ACTION_SELECTION);
 				}
 			});
 
@@ -100,7 +98,7 @@ public class BPayActivity extends ConfirmActivity {
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
-		if (requestCode == SELECTION_ACTION) {
+		if (requestCode == ACTION_SELECTION) {
 			if (resultCode == RESULT_OK) {
 				int position = data.getIntExtra("selection", -1);
 				setHolderValue(position);
@@ -125,11 +123,10 @@ public class BPayActivity extends ConfirmActivity {
 		}
 
 		BPayAccount biller = new BPayAccount();
+		biller.name = holder.biller_name.getText().toString();
 		biller.code = holder.biller_code.getText().toString();
 		biller.description = holder.biller_description.getText().toString();
 		biller.reference = holder.biller_reference.getText().toString();
-
-		String from_name = holder.from_name.getText().toString();
 
 		String warning_message = "";
 		if (amount <= 0.01) {
@@ -149,7 +146,6 @@ public class BPayActivity extends ConfirmActivity {
 		} else {
 			BPayData data = new BPayData();
 			data.from = from;
-			data.from_name = from_name;
 			data.to = biller;
 			data.amount = amount;
 			return data;
@@ -160,7 +156,8 @@ public class BPayActivity extends ConfirmActivity {
 	protected void onCommit() {
 		BPayData data = getData(m_holder);
 		if (data != null) {
-			showConfirm("Are you sure to pay?", Formatter.toString(data));
+			showConfirm("Are you sure to pay?",
+					Formatter.toString(data, m_accounts));
 		}
 	}
 
@@ -171,13 +168,13 @@ public class BPayActivity extends ConfirmActivity {
 			try {
 				// Do BPay
 				Account account_from = bank.getAccount(data.from);
-				BPayReceiptPage page = bank.payBills(account_from,
-						data.from_name, data.to, data.amount);
+				BPayReceiptPage page = bank.payBills(account_from, data.to,
+						data.amount);
 
 				// Show Receipt
 				showReceipt("Pay Bill is successed.", Formatter.toString(page));
 			} catch (PageErrorException ex) {
-				notifyError("Pay Bill is failed.", ex);
+				showError("Pay Bill is failed.", ex);
 			}
 
 		}

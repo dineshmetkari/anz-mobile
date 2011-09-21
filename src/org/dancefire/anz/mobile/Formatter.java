@@ -1,8 +1,10 @@
 package org.dancefire.anz.mobile;
 
 import java.text.DecimalFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.logging.Level;
 
 import org.apache.http.NameValuePair;
 import org.htmlcleaner.TagNode;
@@ -79,8 +81,8 @@ public class Formatter {
 	public static String toString(BPayAccount account) {
 		StringBuilder sb = new StringBuilder();
 		sb.append(account.name + " - " + account.description + "\n");
-		sb.append("Code: " + account.code + " Reference: " + account.reference
-				+ "");
+		sb.append("Code     : " + account.code + "\n");
+		sb.append("Reference: " + account.reference);
 		return sb.toString();
 	}
 
@@ -204,13 +206,13 @@ public class Formatter {
 		sb.append("Lodgement # : " + page.lodgement_number + "\n");
 		return sb.toString();
 	}
-	
+
 	public static String toString(BPayReceiptPage page) {
 		StringBuilder sb = new StringBuilder();
-		sb.append("From   : " + page.from + " (" + page.from_name + ")\n\n");
-		sb.append("To     :\n" + Formatter.toString(page.to) + "\n");
-		sb.append("Amount : "
-				+ Formatter.BALANCE_FORMAT.format(page.amount) + "\n\n");
+		sb.append("From   : " + page.from + "\n\n");
+		sb.append("To     : " + Formatter.toString(page.to) + "\n\n");
+		sb.append("Amount : " + Formatter.BALANCE_FORMAT.format(page.amount)
+				+ "\n\n");
 		sb.append("Receipt #   : " + page.receipt_number + "\n");
 		sb.append("Lodgement # : " + page.lodgement_number + "");
 		return sb.toString();
@@ -237,7 +239,8 @@ public class Formatter {
 				+ "\n\n");
 		sb.append("From   :\n" + Formatter.toString(accounts.get(data.from))
 				+ "\n\n");
-		sb.append("To     :\n" + Formatter.toString(accounts.get(data.to)) + "\n");
+		sb.append("To     :\n" + Formatter.toString(accounts.get(data.to))
+				+ "\n");
 
 		return sb.toString();
 	}
@@ -252,6 +255,19 @@ public class Formatter {
 		sb.append("To     :\n" + Formatter.toString(data.to) + "");
 
 		return sb.toString();
+	}
+
+	public static double parseAmount(String text) {
+		String s = text.trim();
+		if (s.startsWith("$")) {
+			try {
+				return Formatter.WEB_BALANCE_FORMAT.parse(s.substring(1))
+						.doubleValue();
+			} catch (ParseException ex) {
+				AnzMobileUtil.logger.log(Level.WARNING, ex.getMessage(), ex);
+			}
+		}
+		return 0;
 	}
 
 	public static void setTextColorByAmountDark(TextView view, double amount) {

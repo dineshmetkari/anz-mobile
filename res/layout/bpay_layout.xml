@@ -12,22 +12,6 @@
 				android:orientation="vertical" android:layout_width="match_parent"
 				android:background="@drawable/gradient_blue" android:padding="15dp"
 				android:gravity="center" android:layout_margin="5dp">
-				<LinearLayout android:layout_height="wrap_content"
-					android:id="@+id/linearLayout2" android:layout_width="match_parent">
-					<TextView android:text="Your Name : "
-						android:layout_width="wrap_content" android:layout_height="wrap_content"
-						style="@style/account_text_style" android:textSize="15sp"></TextView>
-					<EditText android:layout_height="wrap_content"
-						android:layout_weight="1" android:id="@+id/bpay_from_name"
-						android:layout_width="wrap_content" android:inputType="textPersonName"
-						style="@style/transaction_text_style" android:textSize="15sp">
-					</EditText>
-				</LinearLayout>
-			</LinearLayout>
-			<LinearLayout android:layout_height="wrap_content"
-				android:orientation="vertical" android:layout_width="match_parent"
-				android:background="@drawable/gradient_blue" android:padding="15dp"
-				android:gravity="center" android:layout_margin="5dp">
 				<LinearLayout android:layout_width="match_parent"
 					android:layout_height="wrap_content" android:layout_weight="0.6">
 					<TextView android:text="BPay Biller"
@@ -45,7 +29,7 @@
 						android:layout_height="wrap_content" android:layout_width="wrap_content"
 						style="@style/account_text_style" android:textSize="15sp"></TextView>
 					<EditText android:inputType="number" android:numeric="integer"
-						android:maxLength="6" android:layout_height="wrap_content"
+						android:maxLength="9" android:layout_height="wrap_content"
 						android:layout_weight="1" android:id="@+id/bpay_biller_code"
 						android:layout_width="wrap_content" style="@style/transaction_text_style"
 						android:textSize="18sp"></EditText>
@@ -60,7 +44,7 @@
 						android:layout_height="wrap_content" android:layout_weight="1"
 						android:id="@+id/bpay_biller_name" android:layout_width="match_parent"
 						style="@style/transaction_text_style" android:textSize="18sp"
-						android:enabled="false"></EditText>
+						android:enabled="false" android:maxLength="32"></EditText>
 				</LinearLayout>
 				<LinearLayout android:layout_height="wrap_content"
 					android:layout_width="match_parent" android:orientation="vertical">
@@ -68,7 +52,7 @@
 						android:layout_width="wrap_content" style="@style/account_text_style"
 						android:textSize="15sp"></TextView>
 					<EditText android:inputType="number" android:numeric="integer"
-						android:maxLength="10" android:layout_height="wrap_content"
+						android:maxLength="20" android:layout_height="wrap_content"
 						android:layout_weight="1" android:id="@+id/bpay_biller_reference"
 						android:layout_width="match_parent" style="@style/transaction_text_style"
 						android:textSize="18sp"></EditText>
@@ -81,7 +65,7 @@
 					<EditText android:inputType="textPersonName"
 						android:layout_height="wrap_content" android:layout_weight="1"
 						android:id="@+id/bpay_biller_description" android:layout_width="match_parent"
-						style="@style/transaction_text_style" android:textSize="18sp"></EditText>
+						style="@style/transaction_text_style" android:textSize="18sp" android:maxLength="20"></EditText>
 				</LinearLayout>
 			</LinearLayout>
 			<LinearLayout android:layout_height="wrap_content"
@@ -98,7 +82,7 @@
 						android:numeric="decimal" android:layout_height="wrap_content"
 						android:layout_weight="1" android:id="@+id/bpay_amount"
 						android:layout_width="wrap_content" style="@style/transaction_text_style"
-						android:textSize="15sp"></EditText>
+						android:textSize="15sp" android:maxLength="13"></EditText>
 				</LinearLayout>
 				<Button android:text="Pay" android:id="@+id/bpay_button"
 					android:layout_width="100dp" android:layout_height="50dp"

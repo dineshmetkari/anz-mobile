@@ -1,5 +1,7 @@
 package org.dancefire.anz;
 
+import java.util.logging.Level;
+
 import org.dancefire.anz.mobile.AnzMobileUtil;
 
 import android.app.AlertDialog;
@@ -14,8 +16,9 @@ import android.view.View;
 public class ConfirmActivity extends BaseActivity {
 	protected static final int DIALOG_CONFIRM = 1;
 	protected static final int DIALOG_RECEIPT = 2;
-	protected static final int UPDATE = 1;
-	protected static final int SHOW_RECEIPT = 1;
+	
+	protected static final int ACTION_RECEIPT = 0x10;
+	protected static final int ACTION_ERROR 	= 0x11;
 
 	protected Handler m_handler_update;
 	protected Handler m_handler_finish;
@@ -137,15 +140,31 @@ public class ConfirmActivity extends BaseActivity {
 	protected void showReceipt(String title, String message) {
 		AnzMobileUtil.logger.fine("Show Receipt Activity.");
 		Intent intent = new Intent(this, ReceiptActivity.class);
+		intent.putExtra("type", ReceiptActivity.RECEIPT_MESSAGE);
 		intent.putExtra("title", title);
 		intent.putExtra("message", message);
-		startActivityForResult(intent, SHOW_RECEIPT);
+		startActivityForResult(intent, ACTION_RECEIPT);
+	}
+	
+	protected void showError(String title, Throwable e) {
+		AnzMobileUtil.logger.log(Level.SEVERE, e.getMessage(),
+				e);
+		showError(title, e.getMessage());
+	}
+	
+	protected void showError(String title, String message) {
+		Intent intent = new Intent(this, ReceiptActivity.class);
+		intent.putExtra("type", ReceiptActivity.ERROR_MESSAGE);
+		intent.putExtra("title", title);
+		intent.putExtra("message", message);
+		startActivityForResult(intent, ACTION_ERROR);
 	}
 
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
 		AnzMobileUtil.logger.fine("ConfirmActivity.onActivityResult()");
-		if (requestCode == SHOW_RECEIPT) {
+		if (requestCode == ACTION_RECEIPT) {
 			AnzMobileUtil.logger.fine("\t Calling onReceipt()");
 			onClear();
 			onReceiptReturn();

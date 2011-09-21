@@ -141,16 +141,7 @@ public class Parser {
 						TagNode a = b.findElementByAttValue("class", "amount",
 								true, false);
 						if (a != null) {
-							String amount_text = a.getText().toString().trim()
-									.substring(1);
-							double amount = 0;
-							try {
-								amount = Formatter.WEB_BALANCE_FORMAT.parse(
-										amount_text).doubleValue();
-							} catch (ParseException e) {
-								AnzMobileUtil.logger.log(Level.WARNING,
-										e.getMessage(), e);
-							}
+							double amount = Formatter.parseAmount(a.getText().toString()); 
 							String desc = d.getText().toString().trim();
 							if (NAME_CURRENT_BALANCE.equals(desc)) {
 								acct.current_balance = amount;
@@ -424,13 +415,7 @@ public class Parser {
 				s = s.trim();
 				if (s.startsWith("$")) {
 					// amount
-					try {
-						tran.amount = Formatter.WEB_BALANCE_FORMAT.parse(
-								s.substring(1)).doubleValue();
-					} catch (ParseException ex) {
-						AnzMobileUtil.logger.log(Level.WARNING,
-								ex.getMessage(), ex);
-					}
+					tran.amount = Formatter.parseAmount(s);
 				} else if (s.equals("cr")) {
 					// amount is positive
 				} else if (s.equals("dr")) {
@@ -558,9 +543,8 @@ public class Parser {
 					} else if (label.equals("to")) {
 						page.to = text;
 					} else if (label.equals("amount")) {
-						page.amount = Double.parseDouble(text.substring(1));
+						page.amount = Formatter.parseAmount(text);
 					}
-
 				}
 			}
 		}
@@ -594,7 +578,7 @@ public class Parser {
 			} else if (p.getName().equals("to")) {
 				page.to = p.getValue();
 			} else if (p.getName().equals("amount")) {
-				page.amount = Double.parseDouble(p.getValue().substring(1));
+				page.amount = Formatter.parseAmount(p.getValue());
 			} else if (p.getName().equals("date")) {
 				page.date = p.getValue();
 			} else if (p.getName().equals("lodgement number")) {
@@ -640,8 +624,7 @@ public class Parser {
 			if (text.indexOf("Pay Anyone limit") >= 0) {
 				// Found the limit sentence.
 				text = text.replaceFirst(PATTERN_PAYANYONE_DAILY_LIMIT, "$1");
-				text = text.replaceAll(",", "");
-				page.daily_limit = Double.parseDouble(text);
+				page.daily_limit = Formatter.parseAmount(text);
 				break;
 			}
 		}
@@ -764,13 +747,7 @@ public class Parser {
 			} else if (p.getName().equals("message / reference")) {
 				page.reference = p.getValue();
 			} else if (p.getName().equals("amount")) {
-				try {
-					page.amount = Formatter.WEB_BALANCE_FORMAT.parse(
-							(p.getValue().trim().substring(1))).doubleValue();
-				} catch (ParseException e) {
-					page.amount = 0;
-					AnzMobileUtil.logger.log(Level.WARNING, e.getMessage(), e);
-				}
+				page.amount = Formatter.parseAmount(p.getValue());
 			}
 		}
 		return page;
@@ -813,13 +790,7 @@ public class Parser {
 			} else if (p.getName().equals("message / reference")) {
 				page.reference = p.getValue();
 			} else if (p.getName().equals("amount")) {
-				try {
-					page.amount = Formatter.WEB_BALANCE_FORMAT.parse(
-							p.getValue().trim().substring(1)).doubleValue();
-				} catch (ParseException e) {
-					page.amount = 0;
-					AnzMobileUtil.logger.log(Level.WARNING, e.getMessage(), e);
-				}
+				page.amount = Formatter.parseAmount(p.getValue());
 			} else if (p.getName().equals("date")) {
 				page.date = p.getValue();
 			} else if (p.getName().equals("lodgement number")) {
@@ -938,16 +909,14 @@ public class Parser {
 	 * @throws PageErrorException
 	 */
 	public static BPayConfirmPage getBPayConfirmPage(BPayPage context,
-			int from, String from_name, BPayAccount payee, double amount)
+			int from, BPayAccount payee, double amount)
 			throws PageErrorException {
 		AnzMobileUtil.logger.info("<< BPay Confirm Page >>");
 		// Prepare the post form
 		ArrayList<NameValuePair> params = new ArrayList<NameValuePair>();
 		for (NameValuePair p : context.form.params) {
 			String name = p.getName();
-			if (name.equals("userName")) {
-				params.add(new BasicNameValuePair(name, from_name));
-			} else if (name.equals("pymtDrAccDetails")) {
+			if (name.equals("pymtDrAccDetails")) {
 				params.add(new BasicNameValuePair(name, Integer.toString(from)));
 			} else if (name.equals("Biller_cd")) {
 				params.add(new BasicNameValuePair(name, payee.code));
@@ -988,13 +957,7 @@ public class Parser {
 			} else if (p.getName().equals("reference")) {
 				page.to.reference = p.getValue();
 			} else if (p.getName().equals("amount")) {
-				try {
-					page.amount = Formatter.WEB_BALANCE_FORMAT.parse(
-							p.getValue().trim().substring(1)).doubleValue();
-				} catch (ParseException e) {
-					page.amount = 0;
-					AnzMobileUtil.logger.log(Level.WARNING, e.getMessage(), e);
-				}
+				page.amount = Formatter.parseAmount(p.getValue());
 			}
 		}
 		return page;
@@ -1024,22 +987,29 @@ public class Parser {
 		for (NameValuePair p : list) {
 			if (p.getName().equals("from")) {
 				page.from = p.getValue();
-			} else if (p.getName().equals("your / business name")) {
-				page.from_name = p.getValue();
 			} else if (p.getName().equals("to")) {
-				page.to.description = p.getValue();
+				// name \n\n\n - description
+				page.to.name = "";
+				page.to.description = "";
+				String[] contents = p.getValue().split("-");
+				if (contents.length > 0) {
+					page.to.name = contents[0].trim();
+					if (contents.length > 1) {
+						for (int i = 1; i < contents.length; ++i) {
+							String s = contents[i].trim();
+							if (s.length() > 0) {
+								page.to.description = s;
+								break;
+							}
+						}
+					}
+				}
 			} else if (p.getName().equals("biller code")) {
 				page.to.code = p.getValue();
 			} else if (p.getName().equals("reference")) {
 				page.to.reference = p.getValue();
 			} else if (p.getName().equals("amount")) {
-				try {
-					page.amount = Formatter.WEB_BALANCE_FORMAT.parse(
-							p.getValue().trim().substring(1)).doubleValue();
-				} catch (ParseException e) {
-					page.amount = 0;
-					AnzMobileUtil.logger.log(Level.WARNING, e.getMessage(), e);
-				}
+				page.amount = Formatter.parseAmount(p.getValue());
 			} else if (p.getName().equals("date")) {
 				page.date = p.getValue();
 			} else if (p.getName().equals("lodgement number")) {

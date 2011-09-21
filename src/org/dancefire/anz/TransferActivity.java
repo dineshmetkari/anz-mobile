@@ -136,7 +136,7 @@ public class TransferActivity extends ConfirmActivity {
 				// Show receipt
 				showReceipt("Transfer is successed.", Formatter.toString(page));
 			} catch (PageErrorException ex) {
-				notifyError("Transfer failed.", ex);
+				showError("Transfer failed.", ex);
 			}
 		}
 	}

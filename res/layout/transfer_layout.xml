@@ -31,7 +31,7 @@
 					<EditText android:layout_height="wrap_content"
 						android:layout_weight="1" android:id="@+id/transfer_amount"
 						android:layout_width="wrap_content" android:inputType="numberDecimal"
-						style="@style/transaction_text_style" android:textSize="15sp">
+						style="@style/transaction_text_style" android:textSize="15sp" android:maxLength="13">
 						<requestFocus></requestFocus>
 					</EditText>
 					<Button android:text="Transfer" android:id="@+id/transfer_button"
