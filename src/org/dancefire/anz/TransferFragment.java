@@ -12,10 +12,11 @@ import org.dancefire.anz.mobile.TransferData;
 import org.dancefire.anz.mobile.TransferReceiptPage;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Gallery;
 import android.widget.TextView;
 
-public class TransferActivity extends ConfirmActivity {
+public class TransferFragment extends ConfirmFragment {
 	static class ViewHolder {
 		Gallery from;
 		Gallery to;
@@ -28,33 +29,43 @@ public class TransferActivity extends ConfirmActivity {
 	private ViewHolder m_holder;
 
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.transfer_layout);
+	}
+
+	public View onCreateView(android.view.LayoutInflater inflater,
+			android.view.ViewGroup container, Bundle savedInstanceState) {
+		View v = inflater.inflate(R.layout.transfer_layout, container, false);
 
 		m_holder = new ViewHolder();
-		m_holder.from = (Gallery) findViewById(R.id.transfer_account_from);
-		m_holder.to = (Gallery) findViewById(R.id.transfer_account_to);
-		m_holder.amount = (TextView) findViewById(R.id.transfer_amount);
-		
+		m_holder.from = (Gallery) v.findViewById(R.id.transfer_account_from);
+		m_holder.to = (Gallery) v.findViewById(R.id.transfer_account_to);
+		m_holder.amount = (TextView) v.findViewById(R.id.transfer_amount);
+
 		m_holder.amount.setTypeface(Apps.getCardFont());
 
-		setRequestOnClickListener(R.id.transfer_button);
+		setRequestOnClickListener(v, R.id.transfer_button);
 
+		return v;
+	}
+
+	@Override
+	public void onActivityCreated(Bundle savedInstanceState) {
+		super.onActivityCreated(savedInstanceState);
 		runBackgroundTask();
 	}
 
 	@Override
 	protected void onBackgroundBegin() {
-		Util.showWaitingDialog(this);
+		Util.showWaitingDialog(getActivity());
 	}
 
 	@Override
 	protected void onBackground() throws Throwable {
 		m_accounts = Apps.getBank().getAccounts();
-		m_adapter_from = new AccountListAdapter(this,
+		m_adapter_from = new AccountListAdapter(getActivity(),
 				R.layout.account_item_layout, m_accounts);
-		m_adapter_to = new AccountListAdapter(this,
+		m_adapter_to = new AccountListAdapter(getActivity(),
 				R.layout.account_item_layout, m_accounts);
 	}
 
@@ -142,7 +153,7 @@ public class TransferActivity extends ConfirmActivity {
 	}
 
 	@Override
-	protected void onResume() {
+	public void onResume() {
 		if (m_adapter_from != null) {
 			m_adapter_from.notifyDataSetChanged();
 		}

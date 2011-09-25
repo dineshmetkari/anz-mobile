@@ -4,20 +4,21 @@ import java.util.ArrayList;
 
 import org.dancefire.anz.mobile.Account;
 import org.dancefire.anz.mobile.AnzMobile;
+import org.dancefire.anz.mobile.AnzMobileUtil;
 import org.dancefire.anz.mobile.BPayAccount;
 import org.dancefire.anz.mobile.BPayData;
 import org.dancefire.anz.mobile.BPayReceiptPage;
 import org.dancefire.anz.mobile.Formatter;
 import org.dancefire.anz.mobile.PageErrorException;
 
-import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.Gallery;
 
-public class BPayActivity extends ConfirmActivity {
+public class BPayFragment extends ConfirmFragment {
 	static class ViewHolder {
 		private Gallery from;
 		private EditText biller_name;
@@ -33,32 +34,43 @@ public class BPayActivity extends ConfirmActivity {
 	private AccountListAdapter m_adapter;
 	private ViewHolder m_holder;
 
-	private static final int ACTION_SELECTION = 2;
-
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.bpay_layout);
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
+		View v = inflater.inflate(R.layout.bpay_layout, container, false);
 
 		m_holder = new ViewHolder();
-		m_holder.from = (Gallery) findViewById(R.id.bpay_account_from);
-		m_holder.biller_code = (EditText) findViewById(R.id.bpay_biller_code);
-		m_holder.biller_name = (EditText) findViewById(R.id.bpay_biller_name);
-		m_holder.biller_reference = (EditText) findViewById(R.id.bpay_biller_reference);
-		m_holder.biller_description = (EditText) findViewById(R.id.bpay_biller_description);
-		m_holder.amount = (EditText) findViewById(R.id.bpay_amount);
-		m_holder.selection_button = findViewById(R.id.selection_button);
+		m_holder.from = (Gallery) v.findViewById(R.id.bpay_account_from);
+		m_holder.biller_code = (EditText) v.findViewById(R.id.bpay_biller_code);
+		m_holder.biller_name = (EditText) v.findViewById(R.id.bpay_biller_name);
+		m_holder.biller_reference = (EditText) v
+				.findViewById(R.id.bpay_biller_reference);
+		m_holder.biller_description = (EditText) v
+				.findViewById(R.id.bpay_biller_description);
+		m_holder.amount = (EditText) v.findViewById(R.id.bpay_amount);
+		m_holder.selection_button = v.findViewById(R.id.selection_button);
 
 		m_holder.amount.setTypeface(Apps.getCardFont());
 
-		setRequestOnClickListener(R.id.bpay_button);
+		setRequestOnClickListener(v, R.id.bpay_button);
 
-		runBackgroundTask();
+		return v;
+	}
+
+	@Override
+	public void onActivityCreated(Bundle savedInstanceState) {
+		super.onActivityCreated(savedInstanceState);
+		if (m_accounts == null || m_billers == null) {
+			runBackgroundTask();
+		} else {
+			onBackgroundEnd();
+		}
+		// onLoadSavedState(savedInstanceState);
 	}
 
 	@Override
 	protected void onBackgroundBegin() {
-		Util.showWaitingDialog(this);
+		Util.showWaitingDialog(getActivity());
 	}
 
 	@Override
@@ -69,8 +81,8 @@ public class BPayActivity extends ConfirmActivity {
 
 	@Override
 	protected void onBackgroundEnd() {
-		m_adapter = new AccountListAdapter(this, R.layout.account_item_layout,
-				m_accounts);
+		m_adapter = new AccountListAdapter(getActivity(),
+				R.layout.account_item_layout, m_accounts);
 		m_holder.from.setAdapter(m_adapter);
 
 		if (m_holder.selection_button != null) {
@@ -80,30 +92,42 @@ public class BPayActivity extends ConfirmActivity {
 				names.add(Formatter.toString(biller));
 			}
 
-			m_holder.selection_button.setOnClickListener(new OnClickListener() {
-
-				@Override
-				public void onClick(View v) {
-					Intent intent = new Intent(BPayActivity.this,
-							SelectionActivity.class);
-					intent.putExtra("item_list", names);
-					startActivityForResult(intent, ACTION_SELECTION);
-				}
-			});
+			AnzMobileUtil.logger.fine("setSelectionOnClickListener()");
+			setSelectionOnClickListener(m_holder.selection_button, names);
 
 			Util.dismissWaitingDialog();
 		}
 	}
 
-	@Override
-	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		super.onActivityResult(requestCode, resultCode, data);
-		if (requestCode == ACTION_SELECTION) {
-			if (resultCode == RESULT_OK) {
-				int position = data.getIntExtra("selection", -1);
-				setHolderValue(position);
-			}
+	private void onLoadSavedState(Bundle inState) {
+		if (inState != null) {
+			AnzMobileUtil.logger.fine("onLoadSavedState()");
+			m_holder.biller_name.setText(inState.getString("biller_name"));
+			m_holder.biller_code.setText(inState.getString("biller_code"));
+			m_holder.biller_description.setText(inState
+					.getString("biller_description"));
+			m_holder.biller_reference.setText(inState
+					.getString("biller_reference"));
+			m_holder.amount.setText(inState.getString("amount_text"));
+			m_holder.from.setSelection(inState.getInt("from"));
 		}
+	}
+
+	@Override
+	public void onSaveInstanceState(Bundle outState) {
+		super.onSaveInstanceState(outState);
+		AnzMobileUtil.logger.fine("onSaveInstanceState()");
+
+		outState.putString("biller_name", m_holder.biller_name.getText()
+				.toString());
+		outState.putString("biller_code", m_holder.biller_code.getText()
+				.toString());
+		outState.putString("biller_description", m_holder.biller_description
+				.getText().toString());
+		outState.putString("biller_reference", m_holder.biller_reference
+				.getText().toString());
+		outState.putInt("from", m_holder.from.getSelectedItemPosition());
+		outState.putString("amount_text", m_holder.amount.getText().toString());
 	}
 
 	protected BPayData getData(ViewHolder holder) {
@@ -181,7 +205,8 @@ public class BPayActivity extends ConfirmActivity {
 	}
 
 	@Override
-	protected void onResume() {
+	public void onResume() {
+		AnzMobileUtil.logger.fine("onResume()");
 		if (m_adapter != null) {
 			m_adapter.notifyDataSetChanged();
 		}
@@ -193,15 +218,16 @@ public class BPayActivity extends ConfirmActivity {
 		m_holder.amount.setText("");
 	}
 
-	private void setHolderValue(int index) {
-		BPayAccount account = null;
-		if (index > 0 && index <= m_billers.size()) {
-			account = m_billers.get(index - 1);
-		}
-		setHolderValue(account);
-	}
+	@Override
+	protected void onSelectionItemSelected(int position) {
+		super.onSelectionItemSelected(position);
+		AnzMobileUtil.logger.fine("onItemSelected(" + position + ")");
 
-	private void setHolderValue(BPayAccount biller) {
+		BPayAccount biller = null;
+		if (position > 0 && position <= m_billers.size()) {
+			biller = m_billers.get(position - 1);
+		}
+
 		if (biller != null) {
 			m_holder.biller_name.setText(biller.name);
 			m_holder.biller_code.setText(biller.code);

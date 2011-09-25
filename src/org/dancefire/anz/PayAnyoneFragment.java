@@ -11,14 +11,12 @@ import org.dancefire.anz.mobile.PayAnyoneAccount;
 import org.dancefire.anz.mobile.PayAnyoneData;
 import org.dancefire.anz.mobile.PayAnyoneReceiptPage;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.EditText;
 import android.widget.Gallery;
 
-public class PayAnyoneActivity extends ConfirmActivity {
+public class PayAnyoneFragment extends ConfirmFragment {
 	static class ViewHolder {
 		private Gallery from;
 		private EditText from_name;
@@ -36,37 +34,53 @@ public class PayAnyoneActivity extends ConfirmActivity {
 	private AccountListAdapter m_adapter;
 	private ViewHolder m_holder;
 
-	private static final int ACTION_SELECTION = 2;
-
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.payanyone_layout);
+
+	}
+
+	public View onCreateView(android.view.LayoutInflater inflater,
+			android.view.ViewGroup container, Bundle savedInstanceState) {
+		View v = inflater.inflate(R.layout.payanyone_layout, container, false);
 
 		m_holder = new ViewHolder();
-		m_holder.from = (Gallery) findViewById(R.id.payanyone_account_from);
-		m_holder.from_name = (EditText) findViewById(R.id.payanyone_from_name);
-		m_holder.payee_name = (EditText) findViewById(R.id.payanyone_to_name);
-		m_holder.payee_description = (EditText) findViewById(R.id.payanyone_to_description);
-		m_holder.payee_bsb = (EditText) findViewById(R.id.payanyone_to_bsb);
-		m_holder.payee_number = (EditText) findViewById(R.id.payanyone_to_number);
-		m_holder.amount = (EditText) findViewById(R.id.payanyone_amount);
-		m_holder.reference = (EditText) findViewById(R.id.payanyone_reference);
-		m_holder.selection_button = findViewById(R.id.selection_button);
+		m_holder.from = (Gallery) v.findViewById(R.id.payanyone_account_from);
+		m_holder.from_name = (EditText) v
+				.findViewById(R.id.payanyone_from_name);
+		m_holder.payee_name = (EditText) v.findViewById(R.id.payanyone_to_name);
+		m_holder.payee_description = (EditText) v
+				.findViewById(R.id.payanyone_to_description);
+		m_holder.payee_bsb = (EditText) v.findViewById(R.id.payanyone_to_bsb);
+		m_holder.payee_number = (EditText) v
+				.findViewById(R.id.payanyone_to_number);
+		m_holder.amount = (EditText) v.findViewById(R.id.payanyone_amount);
+		m_holder.reference = (EditText) v
+				.findViewById(R.id.payanyone_reference);
+		m_holder.selection_button = v.findViewById(R.id.selection_button);
 
-		//m_holder.payee_bsb.setTypeface(Apps.getCardFont());
-		//m_holder.payee_number.setTypeface(Apps.getCardFont());
+		// m_holder.payee_bsb.setTypeface(Apps.getCardFont());
+		// m_holder.payee_number.setTypeface(Apps.getCardFont());
 		m_holder.amount.setTypeface(Apps.getCardFont());
 
-		runBackgroundTask();
+		setRequestOnClickListener(v, R.id.payanyone_button);
 
-		setRequestOnClickListener(R.id.payanyone_button);
+		return v;
+	}
 
+	@Override
+	public void onActivityCreated(Bundle savedInstanceState) {
+		super.onActivityCreated(savedInstanceState);
+		if (m_accounts == null || m_payanyone_accounts == null) {
+			runBackgroundTask();
+		} else {
+			onBackgroundEnd();
+		}
 	}
 
 	@Override
 	protected void onBackgroundBegin() {
-		Util.showWaitingDialog(this);
+		Util.showWaitingDialog(getActivity());
 	}
 
 	@Override
@@ -77,8 +91,8 @@ public class PayAnyoneActivity extends ConfirmActivity {
 
 	@Override
 	protected void onBackgroundEnd() {
-		m_adapter = new AccountListAdapter(this, R.layout.account_item_layout,
-				m_accounts);
+		m_adapter = new AccountListAdapter(getActivity(),
+				R.layout.account_item_layout, m_accounts);
 		m_holder.from.setAdapter(m_adapter);
 
 		if (m_holder.selection_button != null) {
@@ -88,29 +102,9 @@ public class PayAnyoneActivity extends ConfirmActivity {
 				names.add(Formatter.toString(account));
 			}
 
-			m_holder.selection_button.setOnClickListener(new OnClickListener() {
-
-				@Override
-				public void onClick(View v) {
-					Intent intent = new Intent(PayAnyoneActivity.this,
-							SelectionActivity.class);
-					intent.putExtra("item_list", names);
-					startActivityForResult(intent, ACTION_SELECTION);
-				}
-			});
+			setSelectionOnClickListener(m_holder.selection_button, names);
 
 			Util.dismissWaitingDialog();
-		}
-	}
-
-	@Override
-	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		super.onActivityResult(requestCode, resultCode, data);
-		if (requestCode == ACTION_SELECTION) {
-			if (resultCode == RESULT_OK) {
-				int position = data.getIntExtra("selection", -1);
-				setHolderValue(position);
-			}
 		}
 	}
 
@@ -199,7 +193,7 @@ public class PayAnyoneActivity extends ConfirmActivity {
 	}
 
 	@Override
-	protected void onResume() {
+	public void onResume() {
 		if (m_adapter != null) {
 			m_adapter.notifyDataSetChanged();
 		}
@@ -211,15 +205,14 @@ public class PayAnyoneActivity extends ConfirmActivity {
 		m_holder.amount.setText("");
 	}
 
-	private void setHolderValue(int index) {
+	@Override
+	protected void onSelectionItemSelected(int position) {
+		super.onSelectionItemSelected(position);
 		PayAnyoneAccount account = null;
-		if (index > 0 && index <= m_payanyone_accounts.size()) {
-			account = m_payanyone_accounts.get(index - 1);
+		if (position > 0 && position <= m_payanyone_accounts.size()) {
+			account = m_payanyone_accounts.get(position - 1);
 		}
-		setHolderValue(account);
-	}
 
-	private void setHolderValue(PayAnyoneAccount account) {
 		if (account != null) {
 			m_holder.payee_name.setText(account.account_name);
 			m_holder.payee_description.setText(account.description);

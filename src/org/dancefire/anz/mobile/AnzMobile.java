@@ -8,7 +8,6 @@ public class AnzMobile {
 	private String m_password;
 	private ArrayList<Account> m_account_list;
 	private ArrayList<BPayAccount> m_bpay_account_list;
-
 	private ArrayList<PayAnyoneAccount> m_payanyone_account_list;
 	private double m_daily_limit;
 

@@ -18,15 +18,10 @@
         </activity>
         <activity android:name=".PinVerifyActivity" android:theme="@android:style/Theme.NoTitleBar"></activity>
         <activity android:name=".RegisterActivity"></activity>
-        <activity android:name=".AccountsListActivity"></activity>
-        <activity android:name=".TransactionListActivity" android:theme="@android:style/Theme.NoTitleBar"></activity>
-        <activity android:name=".SettingActivity"></activity>
         <activity android:name=".PaymentGeneralActivity" android:theme="@android:style/Theme.NoTitleBar"></activity>
-        <activity android:name=".TransferActivity" android:theme="@android:style/Theme.NoTitleBar"></activity>
-        <activity android:name=".PayAnyoneActivity" android:theme="@android:style/Theme.NoTitleBar"></activity>
-        <activity android:name=".BPayActivity" android:theme="@android:style/Theme.NoTitleBar"></activity>
         <activity android:name=".PayToMobileActivity" android:theme="@android:style/Theme.NoTitleBar"></activity>
         <activity android:name=".ReceiptActivity" android:theme="@android:style/Theme.NoTitleBar"></activity>
         <activity android:name=".SelectionActivity" android:theme="@android:style/Theme.NoTitleBar"></activity>
+        <activity android:name=".TransactionListActivity" android:theme="@android:style/Theme.NoTitleBar"></activity>
     </application>
 </manifest>
