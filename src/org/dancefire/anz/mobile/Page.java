@@ -12,13 +12,17 @@ public class Page {
 	public String link_bpay;
 	public Form logout_form;
 	public ArrayList<String> error_messages;
+
 	public boolean hasError() {
 		return error_messages.size() > 0;
 	}
+
 	public String getErrorString() {
 		StringBuilder sb = new StringBuilder();
-		for (String message : error_messages) {
-			sb.append(message + "\n");
+		if (error_messages != null) {
+			for (String message : error_messages) {
+				sb.append(message.trim() + "\n");
+			}
 		}
 		return sb.toString();
 	}

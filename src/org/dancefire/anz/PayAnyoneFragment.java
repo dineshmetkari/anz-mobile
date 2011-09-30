@@ -184,8 +184,12 @@ public class PayAnyoneFragment extends ConfirmFragment {
 						data.from_name, data.to, data.amount, data.reference);
 
 				// Show Receipt
-				showReceipt("Pay Anyone is successed.",
-						Formatter.toString(page));
+				if (page.hasError()) {
+					showError("Pay Anyone is failed.", page.getErrorString());
+				} else {
+					showReceipt("Pay Anyone is successed.",
+							Formatter.toString(page));
+				}
 			} catch (PageErrorException ex) {
 				showError("Pay Anyone is failed.", ex);
 			}

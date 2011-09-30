@@ -148,9 +148,14 @@ public class TransferFragment extends ConfirmFragment {
 						data.amount);
 
 				// Show receipt
-				showReceipt("Transfer is successed.", Formatter.toString(page));
+				if (page.hasError()) {
+					showError("Transfer is failed.", page.getErrorString());
+				} else {
+					showReceipt("Transfer is successed.",
+							Formatter.toString(page));
+				}
 			} catch (PageErrorException ex) {
-				showError("Transfer failed.", ex);
+				showError("Transfer is failed.", ex);
 			}
 		}
 	}

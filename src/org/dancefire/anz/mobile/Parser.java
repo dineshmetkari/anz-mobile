@@ -762,7 +762,7 @@ public class Parser {
 	 */
 	public static PayAnyoneReceiptPage getPayAnyoneResultPage(
 			PayAnyoneConfirmPage context) throws PageErrorException {
-		AnzMobileUtil.logger.info("<< PayAnyone Result Page >>");
+		AnzMobileUtil.logger.info("<< PayAnyone Receipt Page >>");
 		TagNode node = AnzMobileUtil.getNode(context.form.action, context.url,
 				context.form.params);
 		PayAnyoneReceiptPage page = new PayAnyoneReceiptPage();

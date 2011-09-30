@@ -237,6 +237,8 @@ public class AnzMobileUtil {
 			}
 			return form;
 		} else {
+			AnzMobileUtil.logger.finest("\n[Page Content]\n"
+					+ Formatter.toString(node));
 			throw new PageErrorException("Cannot find form [" + form_name + "]");
 		}
 	}

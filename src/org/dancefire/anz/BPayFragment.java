@@ -99,19 +99,19 @@ public class BPayFragment extends ConfirmFragment {
 		}
 	}
 
-	private void onLoadSavedState(Bundle inState) {
-		if (inState != null) {
-			AnzMobileUtil.logger.fine("onLoadSavedState()");
-			m_holder.biller_name.setText(inState.getString("biller_name"));
-			m_holder.biller_code.setText(inState.getString("biller_code"));
-			m_holder.biller_description.setText(inState
-					.getString("biller_description"));
-			m_holder.biller_reference.setText(inState
-					.getString("biller_reference"));
-			m_holder.amount.setText(inState.getString("amount_text"));
-			m_holder.from.setSelection(inState.getInt("from"));
-		}
-	}
+//	private void onLoadSavedState(Bundle inState) {
+//		if (inState != null) {
+//			AnzMobileUtil.logger.fine("onLoadSavedState()");
+//			m_holder.biller_name.setText(inState.getString("biller_name"));
+//			m_holder.biller_code.setText(inState.getString("biller_code"));
+//			m_holder.biller_description.setText(inState
+//					.getString("biller_description"));
+//			m_holder.biller_reference.setText(inState
+//					.getString("biller_reference"));
+//			m_holder.amount.setText(inState.getString("amount_text"));
+//			m_holder.from.setSelection(inState.getInt("from"));
+//		}
+//	}
 
 	@Override
 	public void onSaveInstanceState(Bundle outState) {
@@ -197,7 +197,12 @@ public class BPayFragment extends ConfirmFragment {
 						data.amount);
 
 				// Show Receipt
-				showReceipt("Pay Bill is successed.", Formatter.toString(page));
+				if (page.hasError()) {
+					showError("Pay Bill is failed.", page.getErrorString());
+				} else {
+					showReceipt("Pay Bill is successed.",
+							Formatter.toString(page));
+				}
 			} catch (PageErrorException ex) {
 				showError("Pay Bill is failed.", ex);
 			}

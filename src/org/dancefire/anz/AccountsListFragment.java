@@ -7,7 +7,6 @@ import org.dancefire.anz.mobile.AnzMobileUtil;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -20,7 +19,6 @@ public class AccountsListFragment extends BaseFragment {
 	private ListView m_listview;
 	private ViewGroup m_footer;
 	private boolean m_dual_pane = false;
-	private int m_current_position = 0;
 
 	public View onCreateView(android.view.LayoutInflater inflater,
 			ViewGroup container, Bundle savedInstanceState) {
@@ -62,7 +60,6 @@ public class AccountsListFragment extends BaseFragment {
 
 		if (m_dual_pane) {
 			m_listview.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
-			//showTransactions(m_current_position);
 		}
 
 		// get the account list in background

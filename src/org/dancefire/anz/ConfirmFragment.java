@@ -86,6 +86,9 @@ public class ConfirmFragment extends BaseFragment {
 	}
 
 	protected void showError(String title, String message) {
+		AnzMobileUtil.logger.finer("[off]");
+		Util.dismissPendingDialog();
+
 		BasicDialog d = BasicDialog.newErrorDialog(title, message, new BasicDialog.DumpClickListener());
 		d.showDialog(getFragmentManager());
 	}

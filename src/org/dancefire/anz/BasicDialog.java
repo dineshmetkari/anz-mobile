@@ -90,7 +90,7 @@ public class BasicDialog extends DialogFragment {
 	}
 	@Override
 	public Dialog onCreateDialog(Bundle savedInstanceState) {
-		AnzMobileUtil.logger.finer("CBaseDialog.onCreateDialog()");
+		AnzMobileUtil.logger.finer("BaseDialog.onCreateDialog()");
 		m_title = getArguments().getString("title");
 		m_message = getArguments().getString("message");
 		m_type = getArguments().getInt("type");

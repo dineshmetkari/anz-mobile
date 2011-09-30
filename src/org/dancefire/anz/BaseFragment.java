@@ -11,8 +11,6 @@ import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Toast;
 
 public class BaseFragment extends Fragment {
@@ -87,23 +85,23 @@ public class BaseFragment extends Fragment {
 							SelectionActivity.class);
 					intent.putExtra("list", list);
 					startActivityForResult(intent, SELECTION_ACTION);
-				} else {
-					SelectionFragment f = SelectionFragment.newInstance(list);
-					f.setOnItemClickListner(new OnItemClickListener() {
-
-						@Override
-						public void onItemClick(AdapterView<?> parent,
-								View view, int position, long id) {
-							AnzMobileUtil.logger
-									.fine("Received onItemClick event");
-							AnzMobileUtil.logger
-									.fine("Selection:onItemSelected()");
-							onSelectionItemSelected(position);
-						}
-					});
-					f.setTargetFragment(BaseFragment.this, 0);
-					getFragmentManager().beginTransaction().add(getId(), f)
-							.addToBackStack(null).commit();
+//				} else {
+//					SelectionFragment f = SelectionFragment.newInstance(list);
+//					f.setOnItemClickListner(new OnItemClickListener() {
+//
+//						@Override
+//						public void onItemClick(AdapterView<?> parent,
+//								View view, int position, long id) {
+//							AnzMobileUtil.logger
+//									.fine("Received onItemClick event");
+//							AnzMobileUtil.logger
+//									.fine("Selection:onItemSelected()");
+//							onSelectionItemSelected(position);
+//						}
+//					});
+//					f.setTargetFragment(BaseFragment.this, 0);
+//					getFragmentManager().beginTransaction().add(getId(), f)
+//							.addToBackStack(null).commit();
 				}
 			}
 		});
