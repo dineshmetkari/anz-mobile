@@ -4,15 +4,9 @@ import java.util.logging.Level;
 
 import org.dancefire.anz.mobile.AnzMobileUtil;
 
-import android.app.AlertDialog;
-import android.app.AlertDialog.Builder;
-import android.app.Dialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.app.FragmentTransaction;
 import android.view.View;
-import android.view.View.OnClickListener;
 
 public class ConfirmFragment extends BaseFragment {
 	static interface IConfirm {
@@ -45,58 +39,10 @@ public class ConfirmFragment extends BaseFragment {
 		};
 	}
 
-	protected void showDialog(final Bundle args) {
-		AlertDialog.Builder builder = new Builder(getActivity());
-
-		AnzMobileUtil.logger.finer("[showDialog] \t title: "
-				+ args.getString("title"));
-		AnzMobileUtil.logger.finer("[showDialog] \t message: "
-				+ args.getString("message"));
-
-		builder.setTitle(args.getString("title"))
-				.setMessage(args.getString("message"))
-				.setPositiveButton("Confirm", new Dialog.OnClickListener() {
-
-					@Override
-					public void onClick(DialogInterface dialog, int which) {
-						AnzMobileUtil.logger.info("[onClick]");
-
-						new BackgroundTask() {
-
-							@Override
-							protected void run() throws Throwable {
-								onConfirm(args);
-							}
-
-							@Override
-							protected void onEnd() {
-								AnzMobileUtil.logger.info("[off]");
-								Util.dismissWaitingDialog();
-							};
-						}.start();
-
-						new Handler() {
-							public void handleMessage(android.os.Message msg) {
-								AnzMobileUtil.logger.info("[on]");
-								Util.showWaitingDialog(getActivity());
-							};
-						}.sendEmptyMessageDelayed(0, 500);
-					}
-				}).setNegativeButton("Cancel", new Dialog.OnClickListener() {
-
-					@Override
-					public void onClick(DialogInterface dialog, int which) {
-						dialog.cancel();
-					}
-				});
-
-		builder.create().show();
-	}
-
 	protected void onCommit() {
 	}
 
-	protected void onConfirm(Bundle args) {
+	public void onConfirm() {
 	}
 
 	protected void onReceiptReturn() {
@@ -104,27 +50,34 @@ public class ConfirmFragment extends BaseFragment {
 	}
 
 	protected void showConfirm(String title, String message) {
-		ConfirmDialogFragment f = ConfirmDialogFragment.newInstance(title, message);
-		FragmentTransaction ft = getFragmentManager().beginTransaction();
-		ft.addToBackStack(null);
-		f.show(ft, "confirm");
+		BasicDialog d = BasicDialog.newMessageDialog(title, message, new BasicDialog.OnClickListener() {
+			
+			@Override
+			public void onClick() {
+				AnzMobileUtil.logger.finer("[on]");
+				Util.showPendingDialog(getFragmentManager());
+				onConfirm();
+			}
+		}, new BasicDialog.DumpClickListener());
+		d.showDialog(getFragmentManager());
 	}
 
 	protected void showReceipt(String title, String message) {
-		AnzMobileUtil.logger.fine("Show Receipt Activity.");
-		ReceiptFragment f = ReceiptFragment.newInstance(title, message,
-				ReceiptFragment.RECEIPT_MESSAGE);
-		f.setOnReturnListener(new OnClickListener() {
+		AnzMobileUtil.logger.finer("[off]");
+		Util.dismissPendingDialog();
 
+		AnzMobileUtil.logger.fine("Show Receipt Activity.");
+		
+		BasicDialog d = BasicDialog.newMessageDialog(title, message, new BasicDialog.OnClickListener() {
+			
 			@Override
-			public void onClick(View v) {
+			public void onClick() {
 				AnzMobileUtil.logger.fine("\t Calling onReceipt()");
 				onClear();
 				onReceiptReturn();
 			}
-		});
-
-		getFragmentManager().beginTransaction().replace(getId(), f).commit();
+		}, null);
+		d.showDialog(getFragmentManager());
 	}
 
 	protected void showError(String title, Throwable e) {
@@ -133,12 +86,8 @@ public class ConfirmFragment extends BaseFragment {
 	}
 
 	protected void showError(String title, String message) {
-		getFragmentManager()
-				.beginTransaction()
-				.replace(
-						getId(),
-						ReceiptFragment.newInstance(title, message,
-								ReceiptFragment.ERROR_MESSAGE)).commit();
+		BasicDialog d = BasicDialog.newErrorDialog(title, message, new BasicDialog.DumpClickListener());
+		d.showDialog(getFragmentManager());
 	}
 
 	protected void setRequestOnClickListener(View v, int resId) {

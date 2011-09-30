@@ -70,7 +70,7 @@ public class BPayFragment extends ConfirmFragment {
 
 	@Override
 	protected void onBackgroundBegin() {
-		Util.showWaitingDialog(getActivity());
+		Util.showPendingDialog(getFragmentManager());
 	}
 
 	@Override
@@ -95,7 +95,7 @@ public class BPayFragment extends ConfirmFragment {
 			AnzMobileUtil.logger.fine("setSelectionOnClickListener()");
 			setSelectionOnClickListener(m_holder.selection_button, names);
 
-			Util.dismissWaitingDialog();
+			Util.dismissPendingDialog();
 		}
 	}
 
@@ -184,8 +184,9 @@ public class BPayFragment extends ConfirmFragment {
 					Formatter.toString(data, m_accounts));
 		}
 	}
-
-	protected void onConfirm(Bundle args) {
+	
+	@Override
+	public void onConfirm() {
 		BPayData data = getData(m_holder);
 		if (data != null) {
 			AnzMobile bank = Apps.getBank();

@@ -43,21 +43,21 @@ public class PinVerifyActivity extends Activity {
 		TableLayout table = (TableLayout) findViewById(R.id.pin_table);
 
 		LinearLayout.LayoutParams frame_lp = new LinearLayout.LayoutParams(
-				ViewGroup.LayoutParams.MATCH_PARENT,
-				ViewGroup.LayoutParams.MATCH_PARENT);
+				ViewGroup.LayoutParams.FILL_PARENT,
+				ViewGroup.LayoutParams.FILL_PARENT);
 
 		table.setLayoutParams(frame_lp);
 		table.setStretchAllColumns(true);
 
 		TableLayout.LayoutParams table_lp = new TableLayout.LayoutParams(
-				ViewGroup.LayoutParams.MATCH_PARENT,
-				ViewGroup.LayoutParams.MATCH_PARENT);
+				ViewGroup.LayoutParams.FILL_PARENT,
+				ViewGroup.LayoutParams.FILL_PARENT);
 		table_lp.gravity = Gravity.CENTER;
 		table_lp.weight = 1;
 
 		TableRow.LayoutParams row_lp = new TableRow.LayoutParams(
-				ViewGroup.LayoutParams.MATCH_PARENT,
-				ViewGroup.LayoutParams.MATCH_PARENT);
+				ViewGroup.LayoutParams.FILL_PARENT,
+				ViewGroup.LayoutParams.FILL_PARENT);
 		row_lp.gravity = Gravity.CENTER;
 		row_lp.weight = 1;
 

@@ -1,50 +1,23 @@
 package org.dancefire.anz;
 
+import java.util.concurrent.locks.ReentrantLock;
 import java.util.logging.Level;
 
 import org.dancefire.anz.mobile.AnzMobileUtil;
-import org.dancefire.anz.mobile.Page;
 
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.AlertDialog.Builder;
-import android.content.DialogInterface;
-import android.content.DialogInterface.OnClickListener;
+import android.app.Dialog;
 import android.os.Handler;
 import android.os.Message;
-import android.view.View;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 
 public class Util {
-	public static AlertDialog createAlert(final Activity activity,
-			String title, String message) {
-		AlertDialog.Builder builder = new Builder(activity);
-		builder.setTitle(title).setMessage(message).setCancelable(false)
-				.setPositiveButton(android.R.string.ok, new OnClickListener() {
-
-					@Override
-					public void onClick(DialogInterface dialog, int which) {
-						activity.finish();
-					}
-				});
-		return builder.create();
-	}
-
-	public static AlertDialog createAlert(Activity activity, String title,
-			Page page) {
-		String message;
-		if (page == null || !page.hasError()) {
-			message = "";
-		} else {
-			message = page.getErrorString();
-		}
-		return createAlert(activity, title, message);
-	}
-
-	public static Handler createErrorHandler(final Activity activity) {
+	public static Handler createErrorHandler(final FragmentManager fm) {
 		Handler handler = new Handler() {
 			public void handleMessage(Message msg) {
-				Util.createAlert(activity, msg.getData().getString("title"),
-						msg.getData().getString("message")).show();
+				BasicDialog d = BasicDialog.newMessageDialog(msg.getData().getString("title"), msg.getData().getString("message"));
+				d.showDialog(fm);
 			};
 		};
 
@@ -64,28 +37,33 @@ public class Util {
 				e);
 		notifyError(handler, title, e.getMessage());
 	}
-
-	public static AlertDialog createWaitingDialog(Activity activity) {
-		AlertDialog.Builder builder = new Builder(activity);
-		View v = activity.getLayoutInflater().inflate(
-				R.layout.waiting_item_layout, null);
-		builder.setTitle("Loading...").setView(v);
-		return builder.create();
-	}
 	
-	private static AlertDialog waiting_dialog = null;
-	public static void showWaitingDialog(Activity activity) {
-		//	dismiss the old one before initiate a new one.
-		dismissWaitingDialog();
-		
-		waiting_dialog = createWaitingDialog(activity);
-		waiting_dialog.show();
-	}
+	private static BasicDialog global_pending_dialog = null;
+	private static ReentrantLock global_pending_dialog_lock = new ReentrantLock();
 	
-	public static void dismissWaitingDialog() {
-		if (waiting_dialog != null) {
-			waiting_dialog.dismiss();
-			waiting_dialog = null;
+	public static void showPendingDialog(FragmentManager fm) {
+		dismissPendingDialog();
+		global_pending_dialog_lock.lock();
+		global_pending_dialog = BasicDialog.newPendingDialog("Loading...");
+		FragmentTransaction ft = fm.beginTransaction();
+		Fragment f = fm.findFragmentByTag("waiting");
+		if (f != null) {
+			ft.remove(f);
 		}
+		ft.addToBackStack(null);
+		global_pending_dialog.show(ft, "waiting");
+		global_pending_dialog_lock.unlock();
 	}
+
+	public static void dismissPendingDialog() {
+		global_pending_dialog_lock.lock();
+		if (global_pending_dialog != null && global_pending_dialog.getDialog() != null) {
+			Dialog d = global_pending_dialog.getDialog();
+			d.cancel();
+			global_pending_dialog = null;
+		}
+		global_pending_dialog_lock.unlock();
+	}
+	
+	
 }

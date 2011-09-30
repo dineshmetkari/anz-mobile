@@ -24,11 +24,6 @@ public class ReceiptFragment extends BaseFragment {
 	public static final int ERROR_MESSAGE = 2;
 
 	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-	}
-
-	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		AnzMobileUtil.logger.fine("ReceiptActivity.onCreate()");

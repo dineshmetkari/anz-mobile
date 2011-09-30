@@ -78,7 +78,7 @@ public class TransactionListFragment extends BaseFragment {
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
-		Util.showWaitingDialog(getActivity());
+		Util.showPendingDialog(getFragmentManager());
 		load_transaction(TransactionType.TRANSACTION_NORMAL);
 	}
 
@@ -123,7 +123,7 @@ public class TransactionListFragment extends BaseFragment {
 			break;
 		}
 
-		Util.dismissWaitingDialog();
+		Util.dismissPendingDialog();
 
 		m_running = false;
 		if (m_current_type == TransactionType.TRANSACTION_NORMAL) {

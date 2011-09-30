@@ -23,7 +23,7 @@ public class BaseFragment extends Fragment {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		m_handler_error = Util.createErrorHandler(getActivity());
+		m_handler_error = Util.createErrorHandler(getFragmentManager());
 	}
 
 	protected void notifyError(String title, String message) {

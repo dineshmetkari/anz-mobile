@@ -22,7 +22,7 @@ public class AccountsListFragment extends BaseFragment {
 	public View onCreateView(android.view.LayoutInflater inflater,
 			ViewGroup container, Bundle savedInstanceState) {
 		AnzMobileUtil.logger.fine("AccountListFragment.onCreateView()");
-		m_handler_error = Util.createErrorHandler(getActivity());
+		m_handler_error = Util.createErrorHandler(getFragmentManager());
 
 		View v = inflater.inflate(R.layout.account_list_layout, container,
 				false);
@@ -85,7 +85,7 @@ public class AccountsListFragment extends BaseFragment {
 	@Override
 	protected void onBackgroundBegin() {
 		m_footer.getChildAt(0).setVisibility(View.VISIBLE);
-		Util.showWaitingDialog(getActivity());
+		Util.showPendingDialog(getFragmentManager());
 	}
 
 	@Override
@@ -100,7 +100,7 @@ public class AccountsListFragment extends BaseFragment {
 
 		showAccounts();
 
-		Util.dismissWaitingDialog();
+		Util.dismissPendingDialog();
 	}
 
 	private void showAccounts() {

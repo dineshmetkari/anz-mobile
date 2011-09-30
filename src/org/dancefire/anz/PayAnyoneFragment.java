@@ -80,7 +80,7 @@ public class PayAnyoneFragment extends ConfirmFragment {
 
 	@Override
 	protected void onBackgroundBegin() {
-		Util.showWaitingDialog(getActivity());
+		Util.showPendingDialog(getFragmentManager());
 	}
 
 	@Override
@@ -104,7 +104,7 @@ public class PayAnyoneFragment extends ConfirmFragment {
 
 			setSelectionOnClickListener(m_holder.selection_button, names);
 
-			Util.dismissWaitingDialog();
+			Util.dismissPendingDialog();
 		}
 	}
 
@@ -171,7 +171,7 @@ public class PayAnyoneFragment extends ConfirmFragment {
 	}
 
 	@Override
-	protected void onConfirm(Bundle args) {
+	public void onConfirm() {
 		PayAnyoneData data = getData(m_holder);
 
 		if (data != null) {

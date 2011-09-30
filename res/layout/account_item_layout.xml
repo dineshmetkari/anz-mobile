@@ -15,7 +15,7 @@
 		android:id="@+id/text_account_number" android:paddingTop="65dp"
 		android:layout_gravity="center_horizontal"></TextView>
 	<LinearLayout android:layout_height="wrap_content"
-		android:layout_width="match_parent" android:paddingTop="5dp"
+		android:layout_width="fill_parent" android:paddingTop="5dp"
 		android:paddingRight="35dp">
 		<TextView style="@style/account_text_style" android:text="Current Balance"
 			android:textSize="8sp" android:layout_height="wrap_content"
@@ -27,7 +27,7 @@
 			android:id="@+id/text_label_available_balance"></TextView>
 	</LinearLayout>
 	<LinearLayout android:layout_height="wrap_content"
-		android:layout_width="match_parent" android:paddingRight="35dp">
+		android:layout_width="fill_parent" android:paddingRight="35dp">
 		<TextView style="@style/account_text_style"
 			android:layout_height="wrap_content" android:text="$0.00"
 			android:layout_width="wrap_content" android:id="@+id/text_current_balance"

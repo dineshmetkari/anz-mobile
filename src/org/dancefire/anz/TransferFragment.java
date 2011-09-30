@@ -57,7 +57,8 @@ public class TransferFragment extends ConfirmFragment {
 
 	@Override
 	protected void onBackgroundBegin() {
-		Util.showWaitingDialog(getActivity());
+		//WaitingDialogFragment.showWaiting(getFragmentManager());
+		Util.showPendingDialog(getFragmentManager());
 	}
 
 	@Override
@@ -74,7 +75,9 @@ public class TransferFragment extends ConfirmFragment {
 
 		m_holder.from.setAdapter(m_adapter_from);
 		m_holder.to.setAdapter(m_adapter_to);
-		Util.dismissWaitingDialog();
+		//Util.dismissWaitingDialog();
+		//WaitingDialogFragment.hideWaiting();
+		Util.dismissPendingDialog();
 	}
 
 	private TransferData getData(ViewHolder holder) {
@@ -131,7 +134,7 @@ public class TransferFragment extends ConfirmFragment {
 	}
 
 	@Override
-	protected void onConfirm(Bundle args) {
+	public void onConfirm() {
 		TransferData data = getData(m_holder);
 
 		if (data != null) {
