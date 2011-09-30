@@ -7,6 +7,7 @@ import org.dancefire.anz.mobile.AnzMobileUtil;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -18,6 +19,8 @@ public class AccountsListFragment extends BaseFragment {
 	private ArrayList<Account> m_accounts;
 	private ListView m_listview;
 	private ViewGroup m_footer;
+	private boolean m_dual_pane = false;
+	private int m_current_position = 0;
 
 	public View onCreateView(android.view.LayoutInflater inflater,
 			ViewGroup container, Bundle savedInstanceState) {
@@ -34,20 +37,7 @@ public class AccountsListFragment extends BaseFragment {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
-				AnzMobileUtil.logger.fine("Selected account + [" + position
-						+ "]");
-
-				if (true) {
-					Intent intent = new Intent(getActivity(),
-							TransactionListActivity.class);
-					intent.putExtra("index", position);
-					startActivity(intent);
-				} else {
-					TransactionListFragment f = TransactionListFragment
-							.newInstance(position);
-					getFragmentManager().beginTransaction().replace(getId(), f)
-							.addToBackStack(null).commit();
-				}
+				showTransactions(position);
 			}
 		});
 
@@ -65,6 +55,16 @@ public class AccountsListFragment extends BaseFragment {
 		AnzMobileUtil.logger.fine("AccountListFragment.onActivityCreated()");
 		AnzMobileUtil.logger.fine("m_accounts: " + this.m_accounts
 				+ "\n m_adapter: " + m_adapter);
+
+		View details = getActivity().findViewById(R.id.details);
+		m_dual_pane = details != null
+				&& details.getVisibility() == View.VISIBLE;
+
+		if (m_dual_pane) {
+			m_listview.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+			//showTransactions(m_current_position);
+		}
+
 		// get the account list in background
 		if (this.m_accounts == null) {
 			runBackgroundTask();
@@ -101,6 +101,24 @@ public class AccountsListFragment extends BaseFragment {
 		showAccounts();
 
 		Util.dismissPendingDialog();
+	}
+
+	private void showTransactions(int position) {
+		AnzMobileUtil.logger.fine("Selected account + [" + position + "]");
+
+		if (!m_dual_pane) {
+			Intent intent = new Intent(getActivity(),
+					TransactionListActivity.class);
+			intent.putExtra("index", position);
+			startActivity(intent);
+		} else {
+			m_listview.setItemChecked(position, true);
+			
+			TransactionListFragment f = TransactionListFragment
+					.newInstance(position);
+			getFragmentManager().beginTransaction().replace(R.id.details, f)
+					.addToBackStack(null).commit();
+		}
 	}
 
 	private void showAccounts() {

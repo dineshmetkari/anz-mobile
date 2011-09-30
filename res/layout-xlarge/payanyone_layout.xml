@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="fill_parent">
+	<ScrollView android:layout_height="wrap_content"
+		android:layout_width="fill_parent">
+		<LinearLayout android:layout_height="wrap_content"
+			android:orientation="vertical" android:layout_width="fill_parent">
+			<Gallery android:layout_width="fill_parent" android:id="@+id/payanyone_account_from"
+				android:layout_height="wrap_content" style="@style/account_gallery_style"/>
+			<LinearLayout android:layout_height="wrap_content"
+				android:orientation="vertical" android:layout_width="fill_parent"
+				android:background="@drawable/gradient_blue" android:padding="15dp"
+				android:gravity="center" android:layout_margin="5dp">
+				<LinearLayout android:layout_height="wrap_content"
+					android:layout_width="fill_parent">
+					<TextView android:text="Your Name : "
+						android:layout_width="wrap_content" android:layout_height="wrap_content"
+						style="@style/account_text_style" android:textSize="15sp" />
+					<EditText android:layout_height="wrap_content"
+						android:layout_weight="1" android:id="@+id/payanyone_from_name"
+						android:layout_width="wrap_content" android:inputType="textPersonName"
+						style="@style/transaction_text_style" android:textSize="15sp"
+						android:maxLength="16" />
+				</LinearLayout>
+			</LinearLayout>
+			<LinearLayout android:orientation="horizontal"
+				android:layout_width="fill_parent" android:layout_height="wrap_content">
+				<LinearLayout android:layout_height="wrap_content"
+					android:orientation="vertical" android:layout_width="wrap_content"
+					android:background="@drawable/gradient_blue" android:padding="15dp"
+					android:gravity="center" android:layout_margin="5dp"
+					android:layout_weight="1">
+					<LinearLayout android:layout_width="fill_parent"
+						android:layout_height="wrap_content" android:orientation="horizontal">
+						<TextView android:text="Payee account" style="@style/account_text_style"
+							android:textSize="20sp" android:layout_height="wrap_content"
+							android:padding="10dp" android:layout_width="wrap_content"
+							android:layout_weight="0.6" android:layout_gravity="left" />
+						<ImageView android:id="@+id/selection_button"
+							android:src="@drawable/circle_red_plus" android:layout_width="30dp"
+							android:layout_height="30dp" />
+					</LinearLayout>
+					<LinearLayout android:layout_height="wrap_content"
+						android:layout_width="fill_parent" android:orientation="horizontal">
+						<LinearLayout android:layout_height="wrap_content"
+							android:layout_width="wrap_content" android:layout_weight="0.3">
+							<TextView android:text="BSB " android:layout_height="wrap_content"
+								android:layout_width="wrap_content" style="@style/account_text_style"
+								android:textSize="15sp" />
+							<EditText android:inputType="number" android:numeric="integer"
+								android:maxLength="6" android:layout_height="wrap_content"
+								android:layout_weight="1" android:id="@+id/payanyone_to_bsb"
+								android:layout_width="wrap_content" style="@style/transaction_text_style"
+								android:textSize="15sp" android:text="" />
+						</LinearLayout>
+						<LinearLayout android:layout_height="wrap_content"
+							android:layout_width="wrap_content" android:layout_weight="0.6">
+							<TextView android:text="Account " android:layout_height="wrap_content"
+								android:layout_width="wrap_content" style="@style/account_text_style"
+								android:textSize="15sp" android:paddingLeft="10dp" />
+							<EditText android:inputType="number" android:numeric="integer"
+								android:maxLength="9" android:layout_height="wrap_content"
+								android:layout_weight="1" android:id="@+id/payanyone_to_number"
+								android:layout_width="wrap_content" style="@style/transaction_text_style"
+								android:textSize="15sp" android:text="" />
+						</LinearLayout>
+					</LinearLayout>
+					<LinearLayout android:layout_height="wrap_content"
+						android:layout_width="fill_parent" android:orientation="vertical">
+						<TextView android:text="Payee's Name"
+							android:layout_height="wrap_content" android:layout_width="wrap_content"
+							style="@style/account_text_style" android:textSize="15sp" />
+						<EditText android:inputType="textPersonName"
+							android:layout_height="wrap_content" android:layout_weight="1"
+							android:id="@+id/payanyone_to_name" android:layout_width="fill_parent"
+							style="@style/transaction_text_style" android:textSize="15sp"
+							android:maxLength="32" />
+					</LinearLayout>
+					<LinearLayout android:layout_height="wrap_content"
+						android:layout_width="fill_parent" android:orientation="vertical">
+						<TextView android:text="Payee's Description"
+							android:layout_height="wrap_content" android:layout_width="fill_parent"
+							style="@style/account_text_style" android:textSize="15sp" />
+						<EditText android:inputType="textPersonName"
+							android:layout_height="wrap_content" android:layout_weight="1"
+							android:id="@+id/payanyone_to_description" android:layout_width="fill_parent"
+							style="@style/transaction_text_style" android:textSize="15sp"
+							android:maxLength="20" />
+					</LinearLayout>
+				</LinearLayout>
+				<LinearLayout android:layout_height="wrap_content"
+					android:orientation="vertical" android:layout_width="wrap_content"
+					android:background="@drawable/gradient_blue" android:padding="15dp"
+					android:gravity="center" android:layout_margin="5dp"
+					android:layout_weight="1">
+					<LinearLayout android:layout_height="wrap_content"
+						android:layout_width="fill_parent" android:orientation="vertical">
+						<TextView android:text="Reference" android:layout_height="wrap_content"
+							android:layout_width="wrap_content" style="@style/account_text_style"
+							android:textSize="15sp" />
+						<EditText android:inputType="textPersonName"
+							android:layout_height="wrap_content" android:layout_weight="1"
+							android:id="@+id/payanyone_reference" android:layout_width="fill_parent"
+							style="@style/transaction_text_style" android:textSize="15sp"
+							android:maxLength="18" />
+					</LinearLayout>
+					<LinearLayout android:layout_height="wrap_content"
+						android:layout_width="fill_parent">
+						<TextView android:text="Amount : " android:layout_height="wrap_content"
+							android:layout_width="wrap_content" style="@style/account_text_style"
+							android:textSize="15sp" />
+						<EditText android:inputType="numberDecimal"
+							android:numeric="decimal" android:layout_height="wrap_content"
+							android:layout_weight="1" android:id="@+id/payanyone_amount"
+							android:layout_width="wrap_content" style="@style/transaction_text_style"
+							android:textSize="15sp" android:maxLength="13" />
+					</LinearLayout>
+					<LinearLayout android:layout_height="wrap_content"
+						android:layout_width="fill_parent" android:padding="10dp"
+						android:gravity="right">
+						<Button android:text="Pay" android:id="@+id/payanyone_button"
+							android:layout_width="100dp" android:layout_height="50dp"
+							android:layout_gravity="right|center_vertical" style="@style/transaction_text_style"
+							android:textSize="18sp" android:background="@drawable/button_bg"
+							android:gravity="top|center_horizontal" />
+					</LinearLayout>
+				</LinearLayout>
+			</LinearLayout>
+		</LinearLayout>
+	</ScrollView>
+</LinearLayout>

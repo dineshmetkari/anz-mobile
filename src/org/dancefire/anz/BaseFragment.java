@@ -25,7 +25,7 @@ public class BaseFragment extends Fragment {
 		super.onCreate(savedInstanceState);
 		m_handler_error = Util.createErrorHandler(getFragmentManager());
 	}
-
+	
 	protected void notifyError(String title, String message) {
 		Util.notifyError(m_handler_error, title, message);
 	}

@@ -9,15 +9,15 @@
 			android:orientation="vertical">
 			<Gallery android:layout_height="wrap_content"
 				android:layout_width="fill_parent" android:layout_weight="0.3"
-				android:layout_gravity="center" android:unselectedAlpha="50"
-				android:spacing="10dp" android:id="@+id/transfer_account_from"></Gallery>
+				android:layout_gravity="center" style="@style/account_gallery_style"
+				android:id="@+id/transfer_account_from"></Gallery>
 			<ImageView android:src="@drawable/down_arrow_green"
 				android:layout_height="wrap_content" android:layout_width="wrap_content"
 				android:layout_gravity="center" android:layout_weight="0.1"></ImageView>
 			<Gallery android:layout_height="wrap_content"
 				android:layout_width="fill_parent" android:layout_weight="0.3"
-				android:layout_gravity="center" android:unselectedAlpha="50"
-				android:spacing="10dp" android:id="@+id/transfer_account_to"></Gallery>
+				android:layout_gravity="center" style="@style/account_gallery_style"
+				android:id="@+id/transfer_account_to"></Gallery>
 			<LinearLayout android:layout_height="wrap_content"
 				android:orientation="vertical" android:layout_width="fill_parent"
 				android:background="@drawable/gradient_blue" android:padding="15dp"
@@ -31,7 +31,8 @@
 					<EditText android:layout_height="wrap_content"
 						android:layout_weight="1" android:id="@+id/transfer_amount"
 						android:layout_width="wrap_content" android:inputType="numberDecimal"
-						style="@style/transaction_text_style" android:textSize="15sp" android:maxLength="13">
+						style="@style/transaction_text_style" android:textSize="15sp"
+						android:maxLength="13">
 						<requestFocus></requestFocus>
 					</EditText>
 					<Button android:text="Transfer" android:id="@+id/transfer_button"

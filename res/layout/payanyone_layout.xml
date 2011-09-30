@@ -7,7 +7,10 @@
 		<LinearLayout android:layout_height="wrap_content"
 			android:orientation="vertical" android:layout_width="fill_parent">
 			<Gallery android:layout_width="fill_parent" android:id="@+id/payanyone_account_from"
-				android:layout_height="wrap_content" />
+				android:layout_height="wrap_content" style="@style/account_gallery_style"/>
+			<ImageView android:src="@drawable/down_arrow_green"
+				android:layout_height="wrap_content" android:layout_width="wrap_content"
+				android:layout_gravity="center" android:layout_weight="0.1"></ImageView>
 			<LinearLayout android:layout_height="wrap_content"
 				android:orientation="vertical" android:layout_width="fill_parent"
 				android:background="@drawable/gradient_blue" android:padding="15dp"

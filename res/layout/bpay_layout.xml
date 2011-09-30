@@ -6,8 +6,12 @@
 		android:layout_width="fill_parent">
 		<LinearLayout android:layout_height="wrap_content"
 			android:orientation="vertical" android:layout_width="fill_parent">
-			<Gallery android:layout_width="fill_parent" android:id="@+id/bpay_account_from"
+			<Gallery style="@style/account_gallery_style"
+				android:layout_width="fill_parent" android:id="@+id/bpay_account_from"
 				android:layout_height="wrap_content"></Gallery>
+			<ImageView android:src="@drawable/down_arrow_green"
+				android:layout_height="wrap_content" android:layout_width="wrap_content"
+				android:layout_gravity="center" android:layout_weight="0.1"></ImageView>
 			<LinearLayout android:layout_height="wrap_content"
 				android:orientation="vertical" android:layout_width="fill_parent"
 				android:background="@drawable/gradient_blue" android:padding="15dp"
@@ -65,7 +69,8 @@
 					<EditText android:inputType="textPersonName"
 						android:layout_height="wrap_content" android:layout_weight="1"
 						android:id="@+id/bpay_biller_description" android:layout_width="fill_parent"
-						style="@style/transaction_text_style" android:textSize="18sp" android:maxLength="20"></EditText>
+						style="@style/transaction_text_style" android:textSize="18sp"
+						android:maxLength="20"></EditText>
 				</LinearLayout>
 			</LinearLayout>
 			<LinearLayout android:layout_height="wrap_content"
