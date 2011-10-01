@@ -98,10 +98,11 @@ public class PayAnyoneFragment extends ConfirmFragment {
 		if (m_holder.selection_button != null) {
 			final ArrayList<String> names = new ArrayList<String>();
 			names.add("<new payee>");
-			for (PayAnyoneAccount account : m_payanyone_accounts) {
-				names.add(Formatter.toString(account));
+			if (m_payanyone_accounts != null) {
+				for (PayAnyoneAccount account : m_payanyone_accounts) {
+					names.add(Formatter.toString(account));
+				}
 			}
-
 			setSelectionOnClickListener(m_holder.selection_button, names);
 
 			Util.dismissPendingDialog();

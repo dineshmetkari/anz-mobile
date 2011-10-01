@@ -88,8 +88,10 @@ public class BPayFragment extends ConfirmFragment {
 		if (m_holder.selection_button != null) {
 			final ArrayList<String> names = new ArrayList<String>();
 			names.add("<new biller>");
-			for (BPayAccount biller : m_billers) {
-				names.add(Formatter.toString(biller));
+			if (m_billers != null) {
+				for (BPayAccount biller : m_billers) {
+					names.add(Formatter.toString(biller));
+				}
 			}
 
 			AnzMobileUtil.logger.fine("setSelectionOnClickListener()");
@@ -99,19 +101,19 @@ public class BPayFragment extends ConfirmFragment {
 		}
 	}
 
-//	private void onLoadSavedState(Bundle inState) {
-//		if (inState != null) {
-//			AnzMobileUtil.logger.fine("onLoadSavedState()");
-//			m_holder.biller_name.setText(inState.getString("biller_name"));
-//			m_holder.biller_code.setText(inState.getString("biller_code"));
-//			m_holder.biller_description.setText(inState
-//					.getString("biller_description"));
-//			m_holder.biller_reference.setText(inState
-//					.getString("biller_reference"));
-//			m_holder.amount.setText(inState.getString("amount_text"));
-//			m_holder.from.setSelection(inState.getInt("from"));
-//		}
-//	}
+	// private void onLoadSavedState(Bundle inState) {
+	// if (inState != null) {
+	// AnzMobileUtil.logger.fine("onLoadSavedState()");
+	// m_holder.biller_name.setText(inState.getString("biller_name"));
+	// m_holder.biller_code.setText(inState.getString("biller_code"));
+	// m_holder.biller_description.setText(inState
+	// .getString("biller_description"));
+	// m_holder.biller_reference.setText(inState
+	// .getString("biller_reference"));
+	// m_holder.amount.setText(inState.getString("amount_text"));
+	// m_holder.from.setSelection(inState.getInt("from"));
+	// }
+	// }
 
 	@Override
 	public void onSaveInstanceState(Bundle outState) {
@@ -184,7 +186,7 @@ public class BPayFragment extends ConfirmFragment {
 					Formatter.toString(data, m_accounts));
 		}
 	}
-	
+
 	@Override
 	public void onConfirm() {
 		BPayData data = getData(m_holder);

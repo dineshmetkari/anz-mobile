@@ -110,6 +110,10 @@ public class TransactionListFragment extends BaseFragment {
 
 	@Override
 	protected void onBackgroundEnd() {
+		if (getActivity() == null) {
+			return;
+		}
+		
 		if (m_adapter != null) {
 			m_adapter.notifyDataSetChanged();
 		}

@@ -73,7 +73,7 @@ public class ConfirmFragment extends BaseFragment {
 			@Override
 			public void onClick() {
 				AnzMobileUtil.logger.fine("\t Calling onReceipt()");
-				onClear();
+				//onClear();
 				onReceiptReturn();
 			}
 		}, null);

@@ -15,21 +15,6 @@
 				android:orientation="vertical" android:layout_width="fill_parent"
 				android:background="@drawable/gradient_blue" android:padding="15dp"
 				android:gravity="center" android:layout_margin="5dp">
-				<LinearLayout android:layout_height="wrap_content"
-					android:layout_width="fill_parent">
-					<TextView android:text="Your Name : "
-						android:layout_width="wrap_content" android:layout_height="wrap_content"
-						style="@style/account_text_style" android:textSize="15sp" />
-					<EditText android:layout_height="wrap_content"
-						android:layout_weight="1" android:id="@+id/payanyone_from_name"
-						android:layout_width="wrap_content" android:inputType="textPersonName"
-						style="@style/transaction_text_style" android:textSize="15sp" android:maxLength="16"/>
-				</LinearLayout>
-			</LinearLayout>
-			<LinearLayout android:layout_height="wrap_content"
-				android:orientation="vertical" android:layout_width="fill_parent"
-				android:background="@drawable/gradient_blue" android:padding="15dp"
-				android:gravity="center" android:layout_margin="5dp">
 				<LinearLayout android:layout_width="fill_parent"
 					android:layout_height="wrap_content" android:orientation="horizontal">
 					<TextView android:text="Payee account" style="@style/account_text_style"
@@ -90,6 +75,16 @@
 				android:orientation="vertical" android:layout_width="fill_parent"
 				android:background="@drawable/gradient_blue" android:padding="15dp"
 				android:gravity="center" android:layout_margin="5dp">
+				<LinearLayout android:layout_height="wrap_content"
+					android:layout_width="fill_parent">
+					<TextView android:text="Your Name : "
+						android:layout_width="wrap_content" android:layout_height="wrap_content"
+						style="@style/account_text_style" android:textSize="15sp" />
+					<EditText android:layout_height="wrap_content"
+						android:layout_weight="1" android:id="@+id/payanyone_from_name"
+						android:layout_width="wrap_content" android:inputType="textPersonName"
+						style="@style/transaction_text_style" android:textSize="15sp" android:maxLength="16"/>
+				</LinearLayout>
 				<LinearLayout android:layout_height="wrap_content"
 					android:layout_width="fill_parent" android:orientation="vertical">
 					<TextView android:text="Reference" android:layout_height="wrap_content"

@@ -61,6 +61,7 @@ public class MainActivity extends FragmentActivity {
 				ft.remove(m_current_fragment);
 			}
 			ft.add(R.id.content, f);
+			ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
 			ft.commit();
 			m_current_fragment = f;
 
@@ -137,7 +138,7 @@ public class MainActivity extends FragmentActivity {
 			finish();
 			break;
 		case R.id.menu_setting:
-			startActivity(new Intent(this, SettingFragment.class));
+			startActivity(new Intent(this, SettingActivity.class));
 			break;
 		case R.id.menu_about:
 			break;
