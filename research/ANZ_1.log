@@ -1,0 +1,312 @@
+10-16 23:07:49.119: INFO/ANZ(12746): << URL_LOGIN >>
+10-16 23:07:52.953: INFO/ANZ(12746): << Transfer Page >>
+10-16 23:08:06.637: INFO/ANZ(12746): << PayAnyone Page >>
+10-16 23:08:08.538: INFO/ANZ(12746): Found PayAnyone accounts.
+10-16 23:14:59.379: DEBUG/ANZ(12746): BaseDialog.onCreateDialog()
+10-16 23:15:05.645: DEBUG/ANZ(12746): [on]
+10-16 23:15:05.645: DEBUG/ANZ(12746): [GET] https://www.anz.com/inetbank/mobiledevice/login.asp
+10-16 23:15:05.665: DEBUG/ANZ(12746): BaseDialog.onCreateDialog()
+10-16 23:15:05.715: DEBUG/ANZ(12746):      [Header] Referer:[https://www.anz.com/inetbank/mobiledevice/login.asp]
+10-16 23:15:05.715: DEBUG/ANZ(12746):      [Timeout] : 60000
+10-16 23:15:06.676: DEBUG/ANZ(12746):      [Length] : 9 KB
+10-16 23:15:06.686: INFO/ANZ(12746): << URL_LOGIN >>
+10-16 23:15:06.696: DEBUG/ANZ(12746): [POST] https://banking3.anz.com/IBAU/BANKAWAYMOBILE?Action.iPhoneANZRetUser.Signon=Y&SecureSubmissionParameter=Y&AppSignonBankId=AUANZ&AppType=corporate&CorporateSignonLangId=001&Country=AU&CorporateSignonAccessChannel=J&AffiliateId=00010&jsEnabled=true
+10-16 23:15:06.696: DEBUG/ANZ(12746):      [Header] Referer:[https://www.anz.com/inetbank/mobiledevice/login.asp]
+10-16 23:15:06.696: DEBUG/ANZ(12746):      [Form] EWF_SYS_0:[61118042-ff0a-11d0-98df-006097b70359]
+10-16 23:15:06.696: DEBUG/ANZ(12746):      [Form] EWF_FORM_NAME:[aBegin]
+10-16 23:15:06.696: DEBUG/ANZ(12746):      [Form] BANK ID:[EDIFY]
+10-16 23:15:06.696: DEBUG/ANZ(12746):      [Form] GROUP:[BANKING]
+10-16 23:15:06.696: DEBUG/ANZ(12746):      [Form] PRODUCT NAME:[EBS]
+10-16 23:15:06.696: DEBUG/ANZ(12746):      [Form] LANGUAGE ID:[1]
+10-16 23:15:06.696: DEBUG/ANZ(12746):      [Form] EWFBUTTONModify:[Modify]
+10-16 23:15:06.696: DEBUG/ANZ(12746):      [Form] LAST HOST RESPONSE:[[ANZ LAST HOST ERROR]]
+10-16 23:15:06.696: DEBUG/ANZ(12746):      [Form] USERID:[560254547629019]
+10-16 23:15:06.696: DEBUG/ANZ(12746):      [Form] PIN:[YingZa0722]
+10-16 23:15:06.696: DEBUG/ANZ(12746):      [Form] EXTRA2:[]
+10-16 23:15:06.696: DEBUG/ANZ(12746):      [Form] SRRUNNING:[]
+10-16 23:15:06.696: DEBUG/ANZ(12746):      [Form] ANZ_FINACLE_GUID:[214229761]
+10-16 23:15:06.696: DEBUG/ANZ(12746):      [Form] CorporateSignonCorpId:[560254547629019]
+10-16 23:15:06.696: DEBUG/ANZ(12746):      [Form] CorporateSignonPassword:[YingZa0722]
+10-16 23:15:06.706: DEBUG/ANZ(12746):      [Timeout] : 60000
+10-16 23:15:07.777: DEBUG/ANZ(12746):      [Length] : 12 KB
+10-16 23:15:07.777: DEBUG/ANZ(12746): [img.alt] [View Accounts]
+10-16 23:15:07.787: DEBUG/ANZ(12746): [img.alt] [Transfer Funds]
+10-16 23:15:07.787: DEBUG/ANZ(12746): [img.alt] [Make Payments]
+10-16 23:15:07.807: DEBUG/ANZ(12746): Account: [Access Account] 681.42/562.8
+10-16 23:15:07.807: DEBUG/ANZ(12746):      https://banking3.anz.com/IBAU/BANKAWAYTRAN;jsessionid=0000M-qUvAO3fSDznWs0yS7C4cK:15q7gq5n9?bwayparam=ujyd0is9vCS5ATFj%2F7TSnBMcjBFbYitdM0njatVkA2yeQed7FKqInhjQJkyr%2BBHE0lE7TBSPZAGm%0D%0AQFlFmfFizG4shjadrnLBBHm6Q5thkrA1wzPzWsh03zN9%2BlEdpefQo33%2F3oMKTr%2FuOL%2FSBt5Hgf3yvMLB%0D%0AJ0CaBcQSkp%2F%2F8PNL0wYbV6pWill1FiUJ2c%2F%2BT5I1aA%3D%3D
+10-16 23:15:07.807: DEBUG/ANZ(12746): Account: [ANZ Everyday Visa Debit] 94.0/94.0
+10-16 23:15:07.807: DEBUG/ANZ(12746):      https://banking3.anz.com/IBAU/BANKAWAYTRAN;jsessionid=0000M-qUvAO3fSDznWs0yS7C4cK:15q7gq5n9?bwayparam=3WqwL%2Bnq%2BppegN3EPnPAEcXnas%2BFvJ5QGzIQgT4HDZr8jBahP5AkBwhW9R%2FNvtkm4iQ7eH%2FFa%2B55%0D%0Ad34h5Nwq8%2FMZRgZRm8z1oinq3ToEDV5n5YkX3YIepwTm80LBJjD87xgAcwVFzgkq01Rl530oWgpB61A%2B%0D%0A%2BT9AkD1iP002AAd14WmFY2SQVinvj7GIqy8%2BWLUNwg%3D%3D
+10-16 23:15:07.807: DEBUG/ANZ(12746): Account: [ANZ Online Saver] 1882.04/1882.04
+10-16 23:15:07.807: DEBUG/ANZ(12746):      https://banking3.anz.com/IBAU/BANKAWAYTRAN;jsessionid=0000M-qUvAO3fSDznWs0yS7C4cK:15q7gq5n9?bwayparam=ujyd0is9P243Nl674l1n%2B4PaUS%2BtvUwCUAfSb3urXTqvjEuyPzVRuI39X90EgCX1SikESXwq%2F8XT%0D%0AGWW7ebWo2QxCNfGeE9C%2FWADyF6x5T5QveWDy%2BjaSLDhUvysbHe%2BXUjeS2jyEKS0yxKynmkqy%2FnKqIqJW%0D%0Amw0admuEryJNEYfNFmmQ29yJLI2byd8rP7wnfA6rwg%3D%3D
+10-16 23:15:07.817: DEBUG/ANZ(12746): Account: [Progress Saver] 5010.0/5010.0
+10-16 23:15:07.817: DEBUG/ANZ(12746):      https://banking3.anz.com/IBAU/BANKAWAYTRAN;jsessionid=0000M-qUvAO3fSDznWs0yS7C4cK:15q7gq5n9?bwayparam=uuDQQtbWBl1YAf0l2psJdCl73p2q%2Bwzdlfc67XT77chLjf2bvnaXqy23koOj6yOgRfE7749vyihr%0D%0AHmj4aEDz1OHNQgtfN9wkKhut9t2hFwh2tUFb6j4M0FKMvonvRJgYWO9mPgmHDYrGgjD2HUtueHNjRAn3%0D%0AavuOAM7gYadajEBoYXU9EnzzBL7Hn6HdKj4F3nRpVg%3D%3D
+10-16 23:15:07.817: INFO/ANZ(12746): << Transfer Page >>
+10-16 23:15:07.817: DEBUG/ANZ(12746): [GET] https://banking3.anz.com/IBAU/BANKAWAYTRAN;jsessionid=0000M-qUvAO3fSDznWs0yS7C4cK:15q7gq5n9?bwayparam=ujydiCtFo5PS0D%2FyRmPO0rTgXA62QAdn8fXVVE97i4QprdX0Kmrf4o%2BU5FJFbNTDC37trPFSRpg9%0D%0AR3uFykreX%2BgbDImWyRb0PULrv92XNDUoyyhqPKhdfUtXKe1tYCWbORStER%2BP9Gg%3D
+10-16 23:15:07.817: DEBUG/ANZ(12746):      [Header] Referer:[https://banking3.anz.com/IBAU/BANKAWAYMOBILE?Action.iPhoneANZRetUser.Signon=Y&SecureSubmissionParameter=Y&AppSignonBankId=AUANZ&AppType=corporate&CorporateSignonLangId=001&Country=AU&CorporateSignonAccessChannel=J&AffiliateId=00010&jsEnabled=true]
+10-16 23:15:07.817: DEBUG/ANZ(12746):      [Timeout] : 60000
+10-16 23:15:08.418: DEBUG/ANZ(12746):      [Length] : 7 KB
+10-16 23:15:08.418: DEBUG/ANZ(12746): [img.alt] [View Accounts]
+10-16 23:15:08.418: DEBUG/ANZ(12746): [img.alt] [Transfer Funds]
+10-16 23:15:08.418: DEBUG/ANZ(12746): [img.alt] [Make Payments]
+10-16 23:15:08.438: DEBUG/ANZ(12746): [Transfer Form] : https://banking3.anz.com/IBAU/BANKAWAYTRAN;jsessionid=0000M-qUvAO3fSDznWs0yS7C4cK:15q7gq5n9?bwayparam=ujyd9%2Bca3Ln8AQd4ysIpPBBaL4w%2B8LUhvqLCjOsrmMH4Vp%2FUTi%2F6Rclcr4YUkl%2BZ
+10-16 23:15:08.438: DEBUG/ANZ(12746):      jsValEnabled = []
+10-16 23:15:08.438: DEBUG/ANZ(12746):      checkbutton = []
+10-16 23:15:08.438: DEBUG/ANZ(12746):      isAUS = [true]
+10-16 23:15:08.438: DEBUG/ANZ(12746):      Txn_Amt = []
+10-16 23:15:08.438: DEBUG/ANZ(12746):      pmtType = [O]
+10-16 23:15:08.438: DEBUG/ANZ(12746):      Value_Date = [16/10/2011]
+10-16 23:15:08.438: DEBUG/ANZ(12746):      Action.iPhone.eipp.FundsTransfer.Submit = [Next]
+10-16 23:15:08.438: DEBUG/ANZ(12746):      FundsTransferSelfDrAccountDetails = []
+10-16 23:15:08.438: DEBUG/ANZ(12746):      FundsTransferSelfCrAccountDetails = []
+10-16 23:15:08.438: DEBUG/ANZ(12746):   [012077 520996526]
+10-16 23:15:08.438: DEBUG/ANZ(12746):   [4560045006562218]
+10-16 23:15:08.438: DEBUG/ANZ(12746):   [012310 903638291]
+10-16 23:15:08.448: DEBUG/ANZ(12746):   [012226 261642167]
+10-16 23:15:08.448: INFO/ANZ(12746): << PayAnyone Page >>
+10-16 23:15:08.448: DEBUG/ANZ(12746): [GET] https://banking3.anz.com/IBAU/BANKAWAYTRAN;jsessionid=0000M-qUvAO3fSDznWs0yS7C4cK:15q7gq5n9?bwayparam=3WqwNel%2F%2BvegHt3EpRx9dda9tOCFkjFQGzISvRQ2QOfyW22FLccaBwdQMaj3KcwhbF89sU%2BMdtZa%0D%0AzAxjK4zatqxfiv91W%2BByUwogoPcZcM%2BTGNsw7E94aPPNm%2FkTg1MDKBlbOidCFTvIFk2feQ3WO9kCVGbW%0D%0Asn0sGFSopsm2ia2j4IlFsh3ciJI%3D
+10-16 23:15:08.448: DEBUG/ANZ(12746):      [Header] Referer:[https://banking3.anz.com/IBAU/BANKAWAYTRAN;jsessionid=0000M-qUvAO3fSDznWs0yS7C4cK:15q7gq5n9?bwayparam=ujydiCtFo5PS0D%2FyRmPO0rTgXA62QAdn8fXVVE97i4QprdX0Kmrf4o%2BU5FJFbNTDC37trPFSRpg9%0D%0AR3uFykreX%2BgbDImWyRb0PULrv92XNDUoyyhqPKhdfUtXKe1tYCWbORStER%2BP9Gg%3D]
+10-16 23:15:08.448: DEBUG/ANZ(12746):      [Timeout] : 60000
+10-16 23:15:09.399: DEBUG/ANZ(12746):      [Length] : 18 KB
+10-16 23:15:09.399: DEBUG/ANZ(12746): [img.alt] [View Accounts]
+10-16 23:15:09.399: DEBUG/ANZ(12746): [img.alt] [Transfer Funds]
+10-16 23:15:09.399: DEBUG/ANZ(12746): [img.alt] [Make Payments]
+10-16 23:15:09.409: DEBUG/ANZ(12746): [img.alt] [Pay Bills]
+10-16 23:15:09.439: INFO/ANZ(12746): Found PayAnyone accounts.
+10-16 23:15:09.439: INFO/ANZ(12746): << PayAnyone Confirm Page >>
+10-16 23:15:09.449: DEBUG/ANZ(12746): [POST] https://banking3.anz.com/IBAU/BANKAWAYTRAN;jsessionid=0000M-qUvAO3fSDznWs0yS7C4cK:15q7gq5n9?bwayparam=cqSwHE9KCtm%2FAZMNhHvMPhLKnqK6
+10-16 23:15:09.449: DEBUG/ANZ(12746):      [Header] Referer:[https://banking3.anz.com/IBAU/BANKAWAYTRAN;jsessionid=0000M-qUvAO3fSDznWs0yS7C4cK:15q7gq5n9?bwayparam=3WqwNel%2F%2BvegHt3EpRx9dda9tOCFkjFQGzISvRQ2QOfyW22FLccaBwdQMaj3KcwhbF89sU%2BMdtZa%0D%0AzAxjK4zatqxfiv91W%2BByUwogoPcZcM%2BTGNsw7E94aPPNm%2FkTg1MDKBlbOidCFTvIFk2feQ3WO9kCVGbW%0D%0Asn0sGFSopsm2ia2j4IlFsh3ciJI%3D]
+10-16 23:15:09.449: DEBUG/ANZ(12746):      [Form] checkbutton:[]
+10-16 23:15:09.449: DEBUG/ANZ(12746):      [Form] isAUS:[true]
+10-16 23:15:09.449: DEBUG/ANZ(12746):      [Form] userName:[Ying Guan]
+10-16 23:15:09.449: DEBUG/ANZ(12746):      [Form] payeeAcctName:[Huajie Yan]
+10-16 23:15:09.449: DEBUG/ANZ(12746):      [Form] payeeBSB:[302100]
+10-16 23:15:09.449: DEBUG/ANZ(12746):      [Form] payeeAcid:[1562609]
+10-16 23:15:09.449: DEBUG/ANZ(12746):      [Form] payeeName:[Rayne]
+10-16 23:15:09.449: DEBUG/ANZ(12746):      [Form] Txn_Amt:[1,040.00]
+10-16 23:15:09.449: DEBUG/ANZ(12746):      [Form] txnMemo:[thanks from Ying]
+10-16 23:15:09.449: DEBUG/ANZ(12746):      [Form] pmtType:[O]
+10-16 23:15:09.449: DEBUG/ANZ(12746):      [Form] Value_Date:[16/10/2011]
+10-16 23:15:09.449: DEBUG/ANZ(12746):      [Form] Action.iPhone.eipp.PayAnyone.Initiate.Submit:[Next]
+10-16 23:15:09.449: DEBUG/ANZ(12746):      [Form] pymtDrAccDetails:[2]
+10-16 23:15:09.449: DEBUG/ANZ(12746):      [Form] cpayListIndex:[-1]
+10-16 23:15:09.449: DEBUG/ANZ(12746):      [Timeout] : 60000
+10-16 23:15:10.320: DEBUG/ANZ(12746):      [Length] : 18 KB
+10-16 23:15:10.330: DEBUG/ANZ(12746): [img.alt] [View Accounts]
+10-16 23:15:10.330: DEBUG/ANZ(12746): [img.alt] [Transfer Funds]
+10-16 23:15:10.330: DEBUG/ANZ(12746): [img.alt] [Make Payments]
+10-16 23:15:10.340: DEBUG/ANZ(12746): [img.alt] [Pay Bills]
+10-16 23:15:10.370: WARN/ANZ(12746):   Please enter an amount that is greater than zero.
+10-16 23:15:10.400: DEBUG/ANZ(12746): [Page Content]
+10-16 23:15:10.400: DEBUG/ANZ(12746): <head /><body>
+10-16 23:15:10.400: DEBUG/ANZ(12746): 
+10-16 23:15:10.400: DEBUG/ANZ(12746): 
+10-16 23:15:10.400: DEBUG/ANZ(12746): 
+10-16 23:15:10.400: DEBUG/ANZ(12746): 
+10-16 23:15:10.400: DEBUG/ANZ(12746): 
+10-16 23:15:10.400: DEBUG/ANZ(12746): 
+10-16 23:15:10.400: DEBUG/ANZ(12746): 
+10-16 23:15:10.400: DEBUG/ANZ(12746): 
+10-16 23:15:10.400: DEBUG/ANZ(12746): 
+10-16 23:15:10.400: DEBUG/ANZ(12746): 
+10-16 23:15:10.400: DEBUG/ANZ(12746): 
+10-16 23:15:10.400: DEBUG/ANZ(12746): 
+10-16 23:15:10.400: DEBUG/ANZ(12746): 
+10-16 23:15:10.400: DEBUG/ANZ(12746): 
+10-16 23:15:10.400: DEBUG/ANZ(12746): 
+10-16 23:15:10.400: DEBUG/ANZ(12746): 
+10-16 23:15:10.400: DEBUG/ANZ(12746): 
+10-16 23:15:10.400: DEBUG/ANZ(12746): 
+10-16 23:15:10.400: DEBUG/ANZ(12746): 
+10-16 23:15:10.400: DEBUG/ANZ(12746): 
+10-16 23:15:10.400: DEBUG/ANZ(12746): 
+10-16 23:15:10.400: DEBUG/ANZ(12746): 
+10-16 23:15:10.400: DEBUG/ANZ(12746): 
+10-16 23:15:10.400: DEBUG/ANZ(12746): 
+10-16 23:15:10.400: DEBUG/ANZ(12746): 
+10-16 23:15:10.400: DEBUG/ANZ(12746): 
+10-16 23:15:10.400: DEBUG/ANZ(12746): 
+10-16 23:15:10.400: DEBUG/ANZ(12746): 
+10-16 23:15:10.400: DEBUG/ANZ(12746): 
+10-16 23:15:10.400: DEBUG/ANZ(12746): 
+10-16 23:15:10.400: DEBUG/ANZ(12746): 
+10-16 23:15:10.400: DEBUG/ANZ(12746): 
+10-16 23:15:10.400: DEBUG/ANZ(12746): 
+10-16 23:15:10.400: DEBUG/ANZ(12746): 
+10-16 23:15:10.400: DEBUG/ANZ(12746): 
+10-16 23:15:10.400: DEBUG/ANZ(12746): 
+10-16 23:15:10.400: DEBUG/ANZ(12746): 
+10-16 23:15:10.400: DEBUG/ANZ(12746): 
+10-16 23:15:10.400: DEBUG/ANZ(12746): 
+10-16 23:15:10.400: DEBUG/ANZ(12746): 
+10-16 23:15:10.400: DEBUG/ANZ(12746): 
+10-16 23:15:10.400: DEBUG/ANZ(12746): 
+10-16 23:15:10.400: DEBUG/ANZ(12746): 
+10-16 23:15:10.400: DEBUG/ANZ(12746): 
+10-16 23:15:10.400: DEBUG/ANZ(12746):  
+10-16 23:15:10.400: DEBUG/ANZ(12746):  
+10-16 23:15:10.400: DEBUG/ANZ(12746): 
+10-16 23:15:10.400: DEBUG/ANZ(12746): 
+10-16 23:15:10.400: DEBUG/ANZ(12746): 
+10-16 23:15:10.400: DEBUG/ANZ(12746): 
+10-16 23:15:10.400: DEBUG/ANZ(12746): 
+10-16 23:15:10.400: DEBUG/ANZ(12746): 
+10-16 23:15:10.400: DEBUG/ANZ(12746): 
+10-16 23:15:10.400: DEBUG/ANZ(12746): 
+10-16 23:15:10.400: DEBUG/ANZ(12746): 
+10-16 23:15:10.400: DEBUG/ANZ(12746): 
+10-16 23:15:10.400: DEBUG/ANZ(12746): <script type="text/javascript" src="web/L001/script/iPhone/common_iPhone.js" />
+10-16 23:15:10.400: DEBUG/ANZ(12746): <script type="text/javascript" src="web/L001/script/iPhone/UC016_iPhone.js" />
+10-16 23:15:10.400: DEBUG/ANZ(12746): 
+10-16 23:15:10.400: DEBUG/ANZ(12746): 
+10-16 23:15:10.400: DEBUG/ANZ(12746): 
+10-16 23:15:10.400: DEBUG/ANZ(12746): 
+10-16 23:15:10.400: DEBUG/ANZ(12746): 
+10-16 23:15:10.400: DEBUG/ANZ(12746): 
+10-16 23:15:10.400: DEBUG/ANZ(12746): 
+10-16 23:15:10.400: DEBUG/ANZ(12746): 
+10-16 23:15:10.400: DEBUG/ANZ(12746):  
+10-16 23:15:10.400: DEBUG/ANZ(12746): 
+10-16 23:15:10.400: DEBUG/ANZ(12746): 
+10-16 23:15:10.400: DEBUG/ANZ(12746): 
+10-16 23:15:10.400: DEBUG/ANZ(12746): 
+10-16 23:15:10.400: DEBUG/ANZ(12746): 
+10-16 23:15:10.400: DEBUG/ANZ(12746): 
+10-16 23:15:10.400: DEBUG/ANZ(12746): 
+10-16 23:15:10.400: DEBUG/ANZ(12746): 
+10-16 23:15:10.400: DEBUG/ANZ(12746): <script type="text/javascript"><![CDATA[
+10-16 23:15:10.400: DEBUG/ANZ(12746):  
+10-16 23:15:10.400: DEBUG/ANZ(12746):      
+10-16 23:15:10.400: DEBUG/ANZ(12746):      
+10-16 23:15:10.400: DEBUG/ANZ(12746):       var benefDetails = new Array(36);
+10-16 23:15:10.400: DEBUG/ANZ(12746):      
+10-16 23:15:10.400: DEBUG/ANZ(12746):  
+10-16 23:15:10.400: DEBUG/ANZ(12746): 
+10-16 23:15:10.400: DEBUG/ANZ(12746):  
+10-16 23:15:10.400: DEBUG/ANZ(12746):      
+10-16 23:15:10.400: DEBUG/ANZ(12746):      
+10-16 23:15:10.400: DEBUG/ANZ(12746):      
+10-16 23:15:10.400: DEBUG/ANZ(12746):      
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[0] = new Array(4);
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[0][0] = "014701";
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[0][1] = "496109076";
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[0][2] = "A2Z VIDEOGAMEZ";
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[0][3] = "A2Z VIDEOGAMEZ";
+10-16 23:15:10.400: DEBUG/ANZ(12746):    
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[1] = new Array(4);
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[1][0] = "732287";
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[1][1] = "580084";
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[1][2] = "BING CHEN";
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[1][3] = "BING CHEN";
+10-16 23:15:10.400: DEBUG/ANZ(12746):    
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[2] = new Array(4);
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[2][0] = "641800";
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[2][1] = "500236413";
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[2][2] = "CA NM Ripoll";
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[2][3] = "CA NM Ripoll";
+10-16 23:15:10.400: DEBUG/ANZ(12746):    
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[3] = new Array(4);
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[3][0] = "063238";
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[3][1] = "010236361";
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[3][2] = "Cheng Yee Lai";
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[3][3] = "Cheng Lai";
+10-16 23:15:10.400: DEBUG/ANZ(12746):    
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[4] = new Array(4);
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[4][0] = "735078";
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[4][1] = "000547943";
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[4][2] = "Siavash Rowhani Farid";
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[4][3] = "Chinese Dept Store";
+10-16 23:15:10.400: DEBUG/ANZ(12746):    
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[5] = new Array(4);
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[5][0] = "112879";
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[5][1] = "057114041";
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[5][2] = "Courtney Bower";
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[5][3] = "Courtney Bower";
+10-16 23:15:10.400: DEBUG/ANZ(12746):    
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[6] = new Array(4);
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[6][0] = "062252";
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[6][1] = "010107188";
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[6][2] = "D Bachour";
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[6][3] = "D Bachour";
+10-16 23:15:10.400: DEBUG/ANZ(12746):    
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[7] = new Array(4);
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[7][0] = "083266";
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[7][1] = "672331136";
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[7][2] = "David Ballard";
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[7][3] = "David Ballard";
+10-16 23:15:10.400: DEBUG/ANZ(12746):    
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[8] = new Array(4);
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[8][0] = "084216";
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[8][1] = "555543367";
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[8][2] = "Edgar and Frances Eliseo";
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[8][3] = "E and F Eliseo Ebay";
+10-16 23:15:10.400: DEBUG/ANZ(12746):    
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[9] = new Array(4);
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[9][0] = "013400";
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[9][1] = "580450699";
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[9][2] = "H Wijaya";
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[9][3] = "eBay helomolto";
+10-16 23:15:10.400: DEBUG/ANZ(12746):    
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[10] = new Array(4);
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[10][0] = "062233";
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[10][1] = "10166055";
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[10][2] = "Jacky Ling";
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[10][3] = "eBay Jacky Ling";
+10-16 23:15:10.400: DEBUG/ANZ(12746):    
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[11] = new Array(4);
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[11][0] = "112879";
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[11][1] = "482767781";
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[11][2] = "Lu Xuan";
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[11][3] = "ebay Lu Xuan";
+10-16 23:15:10.400: DEBUG/ANZ(12746):    
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[12] = new Array(4);
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[12][0] = "084423";
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[12][1] = "528200393";
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[12][2] = "MICHELE LOCKE";
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[12][3] = "ebay MICHELE LOCKE";
+10-16 23:15:10.400: DEBUG/ANZ(12746):    
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[13] = new Array(4);
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[13][0] = "014688";
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[13][1] = "108382688";
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[13][2] = "Mohata Pty Ltd";
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[13][3] = "ebay Mohata Pty Ltd";
+10-16 23:15:10.400: DEBUG/ANZ(12746):    
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[14] = new Array(4);
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[14][0] = "114879";
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[14][1] = "483322281";
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[14][2] = "Total IT Australia";
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[14][3] = "eBay totalit-online";
+10-16 23:15:10.400: DEBUG/ANZ(12746):    
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[15] = new Array(4);
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[15][0] = "063142";
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[15][1] = "10271724";
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[15][2] = "Wei Sun";
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[15][3] = "ebay wei sun";
+10-16 23:15:10.400: DEBUG/ANZ(12746):    
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[16] = new Array(4);
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[16][0] = "062005";
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[16][1] = "010530251";
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[16][2] = "EICAGE";
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[16][3] = "EICAGE";
+10-16 23:15:10.400: DEBUG/ANZ(12746):    
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[17] = new Array(4);
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[17][0] = "062336";
+10-16 23:15:10.400: DEBUG/ANZ(12746):     benefDetails[17][1] = "
+10-16 23:15:10.410: ERROR/ANZ(12746): Cannot find form [PayAnyOneConfirm]
+10-16 23:15:10.410: ERROR/ANZ(12746): org.dancefire.anz.mobile.PageErrorException: Cannot find form [PayAnyOneConfirm]
+10-16 23:15:10.410: ERROR/ANZ(12746):     at org.dancefire.anz.mobile.AnzMobileUtil.parseForm(AnzMobileUtil.java:242)
+10-16 23:15:10.410: ERROR/ANZ(12746):     at org.dancefire.anz.mobile.Parser.getPayAnyoneConfirmPage(Parser.java:729)
+10-16 23:15:10.410: ERROR/ANZ(12746):     at org.dancefire.anz.mobile.AnzMobile.payAnyone(AnzMobile.java:247)
+10-16 23:15:10.410: ERROR/ANZ(12746):     at org.dancefire.anz.PayAnyoneFragment.onConfirm(PayAnyoneFragment.java:184)
+10-16 23:15:10.410: ERROR/ANZ(12746):     at org.dancefire.anz.ConfirmFragment$2.onClick(ConfirmFragment.java:59)
+10-16 23:15:10.410: ERROR/ANZ(12746):     at org.dancefire.anz.BasicDialog$1$1.run(BasicDialog.java:136)
+10-16 23:15:10.410: ERROR/ANZ(12746):     at org.dancefire.anz.BackgroundTask$2.doInBackground(BackgroundTask.java:41)
+10-16 23:15:10.410: ERROR/ANZ(12746):     at org.dancefire.anz.BackgroundTask$2.doInBackground(BackgroundTask.java:1)
+10-16 23:15:10.410: ERROR/ANZ(12746):     at android.os.AsyncTask$2.call(AsyncTask.java:185)
+10-16 23:15:10.410: ERROR/ANZ(12746):     at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:306)
+10-16 23:15:10.410: ERROR/ANZ(12746):     at java.util.concurrent.FutureTask.run(FutureTask.java:138)
+10-16 23:15:10.410: ERROR/ANZ(12746):     at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1088)
+10-16 23:15:10.410: ERROR/ANZ(12746):     at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:581)
+10-16 23:15:10.410: ERROR/ANZ(12746):     at java.lang.Thread.run(Thread.java:1019)
+10-16 23:15:10.410: DEBUG/ANZ(12746): [off]
+10-16 23:15:10.440: DEBUG/ANZ(12746): BaseDialog.onCreateDialog()
+

@@ -30,7 +30,7 @@ import android.net.http.AndroidHttpClient;
 public class AnzMobileUtil {
 	public static Logger logger = null;
 	static {
-		logger = Logger.getLogger("ANZ");
+		logger = Logger.getLogger("Piggybank");
 		logger.setLevel(Level.ALL);
 	}
 

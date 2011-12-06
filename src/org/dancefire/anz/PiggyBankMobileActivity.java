@@ -6,7 +6,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
-public class ANZMobileActivity extends Activity {
+public class PiggyBankMobileActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

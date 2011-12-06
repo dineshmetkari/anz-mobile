@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:orientation="vertical" android:layout_width="fill_parent"
 	android:layout_height="fill_parent" android:background="@drawable/gradient_slice_blue">
-	<TextView android:id="@+id/textView1" android:text="ANZ Mobile Banking"
+	<TextView android:id="@+id/textView1" android:text="Piggybank Mobile Banking for ANZ"
 		android:layout_width="fill_parent" android:layout_height="fill_parent"
 		android:gravity="center" android:textSize="20sp"
 		style="@style/account_text_style"></TextView>

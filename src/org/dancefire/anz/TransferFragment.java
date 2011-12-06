@@ -52,7 +52,12 @@ public class TransferFragment extends ConfirmFragment {
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
-		runBackgroundTask();
+		if (m_accounts == null || m_adapter_from == null || m_adapter_to == null || m_holder == null) {
+			runBackgroundTask();
+		} else {
+			m_holder.from.setAdapter(m_adapter_from);
+			m_holder.to.setAdapter(m_adapter_to);
+		}
 	}
 
 	@Override

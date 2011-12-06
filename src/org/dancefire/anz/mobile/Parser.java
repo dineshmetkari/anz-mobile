@@ -709,7 +709,7 @@ public class Parser {
 				params.add(new BasicNameValuePair(name, payee.description));
 			} else if (name.equals("Txn_Amt")) {
 				params.add(new BasicNameValuePair(name,
-						Formatter.WEB_BALANCE_FORMAT.format(amount)));
+						Formatter.AMOUNT_FORMAT.format(amount)));
 			} else if (name.equals("txnMemo")) {
 				params.add(new BasicNameValuePair(name, reference));
 			} else if (name.equals("cpayListIndex")) {

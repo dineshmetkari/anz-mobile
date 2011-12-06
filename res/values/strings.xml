@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hello">Hello World, ANZMobileActivity!</string>
-    <string name="app_name">ANZ Mobile</string>
+    <string name="app_name">PiggyBank Mobile for ANZ</string>
 </resources>
